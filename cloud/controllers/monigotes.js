@@ -8,5 +8,5 @@ Parse.Cloud.define("getMonigotes", function(request, response) {
     error: function(error) {
       response.error("Error Message:" + error.code + " " + error.message);
     }
-  })
+  });
 });
