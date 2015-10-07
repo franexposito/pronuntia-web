@@ -3,7 +3,7 @@ Parse.Cloud.define("listComments", function(request, response) {
   var query = new Parse.Query('Comentarios');
   query.equalTo("toAudio", {
     __type: "Pointer",
-    className: "Audio",
+    className: "Audios",
     objectId: request.params.toAudio
   });
   //incluimos el audio
