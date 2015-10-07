@@ -1,0 +1,19 @@
+language: node_js
+
+# whitelist
+branches:
+  only:
+    - master
+
+install:
+- curl -s https://www.parse.com/downloads/cloud_code/installer.sh | sudo /bin/bash
+
+before_script:
+- /bin/echo "${ACCOUNT_KEY}" | /usr/local/bin/parse configure accountkey -d
+
+script:
+- /usr/local/bin/parse deploy -f
+
+env:
+  global:
+    secure: HsWUozokSgh0TC8zZR3w028m/URSmy+gJCkn7m9v7E5s4Xw3omvMNvpukCRDHl7Qb3qo9wCHlqzPM9cCe+5qrJt4oZ/AoOi08ZzMR/GD4l1FDNpy0a/f38LeCqpvcORub5cxPAg4ErKCi7JP7ToxZOS2cSLVlSsqUT6K9W1hFOu2XBuGZwMS77VtzIcskuCJY7Jv08hxKRUq+WQppW7sP9R4DFUihU44EJLnzDC63CQ+EcKfs5aqKP9tpePZBdzjL+kwOgyIc1yiWUXzvAbyew2OCRu7PQzRBnGPYw7DN8UwoD7IKykrqFsc12bGNFGTZTvC+Din82RtLiFoGVWBwtRBhyCYpHN4qG8XtvGOoUIt4vEM8X8gPL5/KugAHUZNz/hvHlo5tUeNGQep7v9LP22B1FdSbAwB5kip3pobP9kIhq/GjFp3T3tja+twS26FNkn/v7ek0KhJVVh2ukcdLW88Nj3Ni11PTM5RzccfbtuVfU35Wdl4G1qgbANTelNBdI6T60+8rbes1rZLYsg8uxMAMm+me8UFbFBeq8I4SPLrwd2aEr7EOclKG2gW0Hb2vM1ZdxxoL+cpWhkIjoP4CvZuukCHQOnTYYSMRvZJ7wQ/P688Mi8S/vdwHouriW6QzCOq2on3gbDFkJgJJofziWd+phQryo3g5xcPfuJjr3E=
