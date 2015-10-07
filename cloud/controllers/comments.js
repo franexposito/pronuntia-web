@@ -1,5 +1,5 @@
 //Obtenemos los comentarios y el usuario de un determinado audio
-Parse.Cloud.require("listComments", function(request, response) {
+Parse.Cloud.define("listComments", function(request, response) {
   var query = new Parse.Query('Comentarios');
   var Audio = Parse.Object.extend('Audio');
   query.equalTo("toAudio", new Audio({id: request.params.toAudio}));
