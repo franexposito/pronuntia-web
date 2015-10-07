@@ -1,18 +1,19 @@
 language: node_js
+node_js:
+  - "0.10"
 
-# whitelist
 branches:
   only:
     - master
 
 install:
-- curl -s https://www.parse.com/downloads/cloud_code/installer.sh | sudo /bin/bash
+  - curl -s https://www.parse.com/downloads/cloud_code/installer.sh | sudo /bin/bash
 
 before_script:
-- /bin/echo "${ACCOUNT_KEY}" | /usr/local/bin/parse configure accountkey -d
+  - /bin/echo "${ACCOUNT_KEY}" | /usr/local/bin/parse configure accountkey -d
 
 script:
-- /usr/local/bin/parse deploy -f
+  - /usr/local/bin/parse deploy -f
 
 env:
   global:
