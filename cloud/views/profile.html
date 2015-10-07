@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pronuntia</title>
+
+  <!-- BOOSTRAP -->
+  <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
+  <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link type="text/css" rel="stylesheet" href="css/common.css">
+  <link type="text/css" rel="stylesheet" href="css/profile.css">
+</head>
+<body class="">
+  <!-- menu de notificaciones que aparece de izquierda a derecha -->
+  <article id="menuM" class="notifiaciones">
+    <!-- titulo del menu de notificaciones -->
+    <div class="col-sm-12 titulo"><h1>Notificaciones</h1></div>
+    <!-- contenedor con todas las notificaciones -->
+    <div class="col-sm-12 contenedor">
+      <!-- cada una de las notificaciones -->
+      <div class="col-sm-12 notificacion">
+
+      </div>
+    </div>
+  </article>
+
+  <!-- parte principal de la web que contiene las 3 columnas y el navegador -->
+  <main id="panel" class="container-fluid principal">
+    <!-- menu navegador de la pagina web -->
+    <nav class="menu">
+      <section class="notification-boton-cont">
+        <a id="menu-bottom" href="#"><i class="fa fa-user"></i>
+        <span class="badge-noti">34</span></a>
+      </section>
+
+      <section class="titulo-pronuntia">
+        <h1>Pronuntia</h1>
+      </section>
+
+      <section class="botones-menu">
+
+      </section>
+    </nav>
+    <!-- columna izquierda que contiene la información del perfil -->
+    <section class="profile-info-cont">
+      <!-- contenedor con la foto, nombre, fecha e info de seguimiento -->
+      <div class="profile-info col-sm-12">
+        <div class="col-sm-5 profile-foto">
+          <img class="fot" src="img/avatar.jpg" alt="avatar">
+          <a class="seg" href="#"><i class="fa fa-plus"></i> Seguir</a>
+          <a class="sig" href="#">Siguiendo</a>
+          <a class="unfollow" href="#">Dejar de seguir</a>
+        </div>
+        <div class="col-sm-7 profile-name">
+          <h1>Miss Pronuntia</h1>
+          <img src="img/es-2.png" >
+          <h3>Se unió en Septiembre de 2015</h3>
+        </div>
+      </div>
+      <!-- contenedor con la descripcion del perfil, localizacion y pagina web -->
+      <div class="profile-description col-sm-12">
+        <article class="localizacion"><p>Mujer de Esternocleido-mastoideo, Yammosoukro</p></article>
+        <article class="descripcion"><p>Apasionada de los idiomas. Doy clase en la Universidad de Pronuntia. Filóloga de alemán. http://facebook.com/george.awad3</p></article>
+        <article class="web"><p><a href="">http://facebook.com/george.awad3</a></p></article>
+      </div>
+      <!-- contenedor con la informacion de los seguidores, seguidos y favoritos del usuario -->
+      <div class="profile-follows col-sm-12">
+        <div class="col-sm-12 row-d">
+          <div class="col-xs-4 active">
+            <div class="col-xs-12 titulo"><h1>seguidores</h1></div>
+            <div class="col-xs-12 cifras"><a href="#">12</a></div>
+          </div>
+          <div class="col-xs-4">
+            <div class="col-xs-12 titulo"><h1>siguiendo</h1></div>
+            <div class="col-xs-12 cifras"><a href="#">224</a></div>
+          </div>
+          <div class="col-xs-4">
+            <div class="col-xs-12 titulo"><h1>favoritos</h1></div>
+            <div class="col-xs-12 cifras"><a href="#">32</a></div>
+          </div>
+        </div>
+        <div class="col-sm-12 row-e">
+          <article class="fow active">
+            Seguidores
+            <div class="ver">
+              <a href="">Ver todos</a>
+            </div>
+          </article>
+          <article class="fow">
+            Siguiendo
+            <div class="ver">
+              <a href="">Ver todos</a>
+            </div>
+          </article>
+          <article class="fow">
+            Favoritos
+            <div class="ver">
+              <a href="">Ver todos</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- contenedor de la columna central y derecha -->
+    <section class="pronuntias-cont col-sm-12">
+      <!-- contenedor de la columna central que contiene las pronunciaciones del usuario -->
+      <section class="col-sm-9 all-pronuntias">
+        <!-- cada una de las pronunciaciones -->
+        <div class="p-cont col-sm-4">
+          <div class="col-sm-12 header-pronuntia"></div>
+          <div class="col-xs-12 rest">
+            <div class="col-sm-12 pronuntia-principal pad0">
+              <div class="col-sm-12 nombre pad0">
+                <a href='#'>Patata</a>
+              </div>
+              <div class="col-sm-12 play">
+                <a href="#"> <img src="img/play.png" alt="play"></a>
+              </div>
+              <div class="col-sm-12 col-height fecha pad0">
+                <img src="/img/es-2.png" />
+                <h3>17/05/2015</h3>
+              </div>
+            </div>
+          </div>
+          <div class="bottom col-sm-12 pad0">
+            <a href=""><img src="img/replay.png"> 22k</a>
+            <a href=""><img src="img/fav.png"> 156</a>
+            <a href=""><img src="img/comments.png"> 360</a>
+            <a id="excl" href=""><img src="img/excla.png"></a>
+            <a href=""><img src="img/share.png"></a>
+          </div>
+        </div>
+
+        <!- -->
+        <div class="p-cont col-sm-8">
+          <div class="col-sm-12 header-pronuntia"></div>
+          <div class="col-xs-12 rest">
+            <div class="col-sm-12 pronuntia-principal pad0">
+              <div class="col-sm-12 nombre pad0">
+                <a href='#'>Que calor hace en mi pueblo</a>
+              </div>
+              <div class="col-sm-12 play">
+                <a href="#"> <img src="img/play.png" alt="play"></a>
+              </div>
+              <div class="col-sm-12 col-height fecha pad0">
+                <img src="/img/es-2.png" />
+                <h3>17/05/2015</h3>
+              </div>
+            </div>
+          </div>
+          <div class="bottom col-sm-12 pad0">
+            <a href=""><img src="img/replay.png"> 22k</a>
+            <a href=""><img src="img/fav.png"> 156</a>
+            <a href=""><img src="img/comments.png"> 360</a>
+            <a id="excl" href=""><img src="img/excla.png"></a>
+            <a href=""><img src="img/share.png"></a>
+          </div>
+        </div>
+        <!- -->
+
+
+      </section>
+      <!-- contenedor de la columna derecha -->
+      <aside class="col-sm-3 basic-info">
+        <!-- información sobre pronuntia -->
+        <ul class="col-sm-12 about-pronuntia">
+          <li>©2015 Pronuntia </li>
+          <li><a href="">Sobre nosotros </a></li>
+          <li><a href="">Ayuda </a></li>
+          <li><a href="">Condiciones </a></li>
+          <li><a href="">Privacidad </a></li>
+          <li><a href="">Cookies </a></li>
+          <li><a href="">Contacto </a></li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/menu.js"></script>
+  <script type="text/javascript" src="js/profile.js"></script>
+
+</body>
+
+</html>

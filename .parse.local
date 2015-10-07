@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "Pronuntia": {
+      "applicationId": ""
+    },
+    "_default": {
+      "link": "Pronuntia"
+    }
+  }
+}

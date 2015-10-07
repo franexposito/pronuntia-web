@@ -1,0 +1,27 @@
+body {
+  font-family: Helvetica;
+  background: #fff;
+}
+
+.pad0 {
+  padding: 0;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+.btn-sub {
+  border: none;
+  margin-top: 20px;
+  border-radius: 15px;
+  color: #00a8f0;
+  padding: 7px 0;
+  font-size: 15px;
+}
+
+.btn-sub:hover {
+  color: #00a8f0;
+  background: #fff;
+}
