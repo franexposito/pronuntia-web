@@ -4,4 +4,5 @@
 
 //Controladores
 var userController = require('cloud/controllers/user.js');
+var monigotesController = require('cloud/controllers/monigotes.js');
 
