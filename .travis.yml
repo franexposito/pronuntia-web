@@ -7,7 +7,7 @@ branches:
     - master
 
 install:
-  - curl -s https://www.parse.com/downloads/cloud_code/installer.sh | /bin/bash
+  - curl -s https://www.parse.com/downloads/cloud_code/installer.sh | sudo /bin/bash
 
 before_script:
   - /bin/echo "${ACCOUNT_KEY}" | /usr/local/bin/parse configure accountkey -d
