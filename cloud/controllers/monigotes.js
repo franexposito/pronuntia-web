@@ -1,3 +1,4 @@
+//Obtenemos todos los monigotes
 Parse.Cloud.define("getMonigotes", function(request, response) {
   var monigote = Parse.Object.extend("Monigotes");
   var query = Parse.Query(monigote);
