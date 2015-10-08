@@ -111,7 +111,7 @@ Parse.Cloud.define("getAudiosFromUser", function(request, response) {
 });
 
 //Obtenemos todos los audios de un objectId
-Parse.Cloud.define("getFavoriteAudiosFromUserId", function(request, response) {
+/*Parse.Cloud.define("getFavoriteAudiosFromUserId", function(request, response) {
   var query = new Parse.Query(Parse.User);
   query.equalTo("favoritos", request.params.objectId);
   query.include("user");
@@ -125,10 +125,10 @@ Parse.Cloud.define("getFavoriteAudiosFromUserId", function(request, response) {
       response.error({'resp': error.code, 'message': error.message});
     }
   });
-});
+});*/
 
 //Aumentamos el numero de seguidores
-Parse.Cloud.define("aumentar", function(request, response) {
+/*Parse.Cloud.define("aumentar", function(request, response) {
   var query = new Parse.Query(Parse.User);
   query.get(request.params.objectId, {
     success: function(user) {
@@ -140,4 +140,4 @@ Parse.Cloud.define("aumentar", function(request, response) {
       response.error({'resp': error.code, 'message': error.message});
     }
   });
-});
+});*/
