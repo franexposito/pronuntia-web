@@ -94,7 +94,7 @@ Parse.Cloud.define("getUserByObjectId", function(request, response) {
 });
 
 //Obtenemos todos los audios de un usuario
-Parse.Cloud.define("getAudiosFromUser", function(request, response) {
+/*Parse.Cloud.define("getAudiosFromUser", function(request, response) {
   var query = new Parse.Query("Audios");
   query.equalTo("user", request.params.user);
   query.include("user");
@@ -108,7 +108,7 @@ Parse.Cloud.define("getAudiosFromUser", function(request, response) {
       response.error({'resp': error.code, 'message': error.message});
     }
   });
-});
+});*/
 
 //Obtenemos todos los audios de un objectId
 /*Parse.Cloud.define("getFavoriteAudiosFromUserId", function(request, response) {
