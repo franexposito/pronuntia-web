@@ -20,14 +20,18 @@ Parse.Cloud.define("registro", function(request, response) {
   user.set("favoritos", num);
   user.set("audios", num);
 
-  if (request.params.monigoteBool) {
-    var Monigotes = Parse.Object.extend('Monigotes');
-    user.set("monigote", new Monigotes({id: request.params.monigoteElegido}));
-    user.set("imageprofile", null);
+  if (request.params.monigoteBool == true) {
+    if (request.params.monigoteElegido != null ) {
+      var Monigotes = Parse.Object.extend('Monigotes');
+      user.set("monigote", new Monigotes({id: request.params.monigoteElegido}));
+      user.set("imageprofile", null);
+    }
   } else {
-    user.set("monigote", null);
-    var myImageProfile = new Parse.File("avatar.png", request.params.imageprofile);
-    user.set("imageprofile", myImageProfile);
+    if (request.params.imageprofile != null) {
+      user.set("monigote", null);
+      var myImageProfile = new Parse.File("avatar.png", request.params.imageprofile);
+      user.set("imageprofile", myImageProfile);
+    }
   }
 
   user.signUp(null, {
@@ -111,9 +115,13 @@ Parse.Cloud.define("getAudiosFromUser", function(request, response) {
 });
 
 //Obtenemos todos los audios de un objectId
-/*Parse.Cloud.define("getFavoriteAudiosFromUserId", function(request, response) {
-  var query = new Parse.Query(Parse.User);
-  query.equalTo("favoritos", request.params.objectId);
+Parse.Cloud.define("getFavoriteAudiosFromUserId", function(request, response) {
+  var query = new Parse.Query("Favoritos");
+  query.equalTo("to", {
+    __type: "Pointer",
+    calssName: "User",
+    id: request.params.objectId
+  });
   query.include("user");
   query.include("user.pais");
 
@@ -125,10 +133,30 @@ Parse.Cloud.define("getAudiosFromUser", function(request, response) {
       response.error({'resp': error.code, 'message': error.message});
     }
   });
-});*/
+});
+
+//Obtenemos nuestros seguidores
+Parse.Cloud.define("listOfUsersFollowingTo", function(request, response) {
+  var query = new Parse.Query("Seguidores");
+  query.equalTo("from", {
+    __type: "Pointer",
+    className: "User",
+    id: request.params.objectId
+  });
+
+  query.find({
+    success: function(seguidores) {
+      response.sucess(seguidores);
+    },
+    error: function(error) {
+      response.error({'resp': error.code, 'message': error.message});
+    }
+  });
+});
 
 //Aumentamos el numero de seguidores
-/*Parse.Cloud.define("aumentar", function(request, response) {
+Parse.Cloud.define("aumentar", function(request, response) {
+  Parse.Cloud.useMasterKey();
   var query = new Parse.Query(Parse.User);
   query.get(request.params.objectId, {
     success: function(user) {
@@ -140,4 +168,4 @@ Parse.Cloud.define("getAudiosFromUser", function(request, response) {
       response.error({'resp': error.code, 'message': error.message});
     }
   });
-});*/
+});
