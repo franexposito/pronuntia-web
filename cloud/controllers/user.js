@@ -15,10 +15,10 @@ Parse.Cloud.define("registro", function(request, response) {
   user.set("provincia", request.params.provincia);
   user.set("region", request.params.region);
 
-  user.set("seguidores", num);
+  /*user.set("seguidores", num);
   user.set("siguiendo", num);
   user.set("favoritos", num);
-  user.set("audios", num);
+  user.set("audios", num);*/
 
   if (request.params.monigoteBool) {
     var Monigotes = Parse.Object.extend('Monigotes');
