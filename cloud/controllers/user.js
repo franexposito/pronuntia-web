@@ -2,7 +2,6 @@ var _ = require('underscore');
 
 //Registra un usuario
 Parse.Cloud.define("registro", function(request, response) {
-  var num = 0;
   var user = new Parse.User();
   user.set("username", request.params.username);
   user.set("password", request.params.password);
@@ -15,10 +14,10 @@ Parse.Cloud.define("registro", function(request, response) {
   user.set("provincia", request.params.provincia);
   user.set("region", request.params.region);
 
-  user.set("seguidores", num);
-  user.set("siguiendo", num);
-  user.set("favoritos,", num);
-  user.set("audios", num);
+  user.set("seguidores", 0);
+  user.set("siguiendo", 0);
+  user.set("favoritos", 0);
+  user.set("audios", 0);
 
   if (request.params.monigoteBool) {
     var Monigotes = Parse.Object.extend('Monigotes');
