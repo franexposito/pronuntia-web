@@ -86,3 +86,17 @@ Parse.Cloud.define("getUserByObjectId", function(request, response) {
     }
   });
 });
+
+//Obtenemos todos los audios de un usuario
+Parse.Cloud.define("getAudiosFromUser", function(request, response) {
+  var query = new Parse.Query("Audios");
+  query.equalTo("user", request.params.user);
+  query.find({
+    success: function(result) {
+      response.success(result);
+    },
+    error: function(error) {
+      response.error({'resp': error.code, 'message': error.message});
+    }
+  });
+});
