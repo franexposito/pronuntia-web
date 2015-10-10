@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pronuntia</title>
+
+  <!-- BOOSTRAP -->
+  <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
+  <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link type="text/css" rel="stylesheet" href="css/common.css">
+  <link type="text/css" rel="stylesheet" href="./css/api.css">
+</head>
+
+<body>
+
+  <nav>
+    <h1>Pronuntia</h1>
+  </nav>
+
+  <div class="ti">
+    <h2>API for Cloud Code Connections</h2>
+  </div>
+
+  <ul class="menu">
+    <li><a href="#usuarios">Usuarios</a>
+      <ul>
+        <li><a href="crear-usuario">Crear usuario</a></li>
+      </ul>
+    </li>
+    <li><a href="#audios">Audios</a></li>
+    <li><a href="#commentarios">Comentarios</a></li>
+  </ul>
+
+  <main class="container-fluid main">
+    <div class="col-sm-12 bloque">
+      <h1 id="usuarios">Usuarios</h1>
+      <h2 id="crear-usuario">signUp</h2>
+      <p>Este método se usa para crear un usuario</p>
+      <h4>Parametros</h4>
+      <ul>
+        <li>username: String</li>
+        <li>password: String</li>
+        <li>email: String</li>
+        <li>pais: Pointer&#60;Pais&#62;</li>
+        <li>isFacebook: bool</li>
+        <li>sexo: String</li>
+        <li>pueblo: String</li>
+        <li>provincia: String</li>
+        <li>region: String</li>
+        <li>monigoteBool: bool</li>
+        <li>monigoteElegido: Pointer&#60;Monigote&#62;</li>
+        <li>imagenprofile: Bytes</li>
+      </ul>
+      <h4>Success</h4>
+      <p>true</p>
+      <h4>Error</h4>
+      <p>Error Message: error.code + error.message</p>
+    </div>
+  </main>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/api.js"></script>
+</body>
+</html>

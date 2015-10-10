@@ -1,7 +1,7 @@
 var _ = require('underscore');
 
 //Registra un usuario
-Parse.Cloud.define("registro", function(request, response) {
+Parse.Cloud.define("signUp", function(request, response) {
   var num = 0;
   var user = new Parse.User();
   user.set("username", request.params.username);
@@ -119,7 +119,7 @@ Parse.Cloud.define("getFavoriteAudiosFromUserId", function(request, response) {
   var query = new Parse.Query("Favoritos");
   query.equalTo("to", {
     __type: "Pointer",
-    calssName: "User",
+    className: "User",
     id: request.params.objectId
   });
   query.include("user");
@@ -151,6 +151,16 @@ Parse.Cloud.define("listOfUsersFollowingTo", function(request, response) {
     error: function(error) {
       response.error({'resp': error.code, 'message': error.message});
     }
+  });
+});
+
+//Obtenemos la gente que nos sigue
+Parse.Cloud.define("listOfUserWhoAreFollowingMe", function(request, response) {
+  var query = new Parse.Query("Seguidores");
+  query.equalTo("to", {
+    __type: "Pointer",
+    className: "User",
+    id: request.params.objectId
   });
 });
 
