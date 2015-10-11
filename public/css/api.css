@@ -11,6 +11,7 @@ nav {
 }
 
 nav h1 {
+  font-size: 26px;
   margin: 0;
   padding: 0;
   color: white;
@@ -32,6 +33,10 @@ nav h1 {
   line-height: 100px;
 }
 
+.pad20 {
+  padding-top: 20px;
+}
+
 .menu {
   position: absolute;
   top: 160px;
@@ -41,9 +46,11 @@ nav h1 {
   padding-top: 60px;
   width: 300px;
   list-style: none;
+  z-index: 1;
 }
 
 .menu.fixed {
+  overflow-y: auto;
   position: fixed;
   top: 0;
 }
@@ -80,11 +87,13 @@ nav h1 {
 }
 
 .bloque ul {
+  color: #373737;
   border-radius: 10px;
   background: #ebebeb;
   padding: 10px 40px;
 }
 
 .bloque h4 {
+  color: #aaaaaa;
   font-size: 16px;
 }

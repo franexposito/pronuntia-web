@@ -6,8 +6,6 @@ Parse.Cloud.define("listComments", function(request, response) {
     className: "Audios",
     objectId: request.params.toAudio
   });
-  //incluimos el audio
-  query.include("toAudio");
   //incluimos el usuario
   query.include("fromId");
 
