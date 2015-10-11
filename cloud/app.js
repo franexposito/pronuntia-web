@@ -3,8 +3,11 @@
 //var _ = require('underscore');
 
 //Controladores
-var userController = require('cloud/controllers/user.js');
+var audioController = require('cloud/controllers/audio.js');
+var commentsController = require('cloud/controllers/comments.js');
+var favoritosController = require('cloud/controllers/favoritos.js');
+var megustaController = require('cloud/controllers/megusta.js');
 var monigotesController = require('cloud/controllers/monigotes.js');
 var paisController = require('cloud/controllers/pais.js');
-var commentsController = require('cloud/controllers/comments.js');
-
+var seguidoresController = require('cloud/controllers/seguidores.js');
+var userController = require('cloud/controllers/user.js');
