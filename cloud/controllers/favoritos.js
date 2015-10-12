@@ -1,17 +1,26 @@
 //Obtenemos todos los audios de un objectId
 Parse.Cloud.define("getFavoriteAudiosFromUserId", function(request, response) {
   var query = new Parse.Query("Favoritos");
-  query.equalTo("to", {
+  query.equalTo("from", {
     __type: "Pointer",
-    className: "User",
-    id: request.params.objectId
+    className: "_User",
+    objectId: request.params.objectId
   });
   query.include("user");
   query.include("user.pais");
 
   query.find({
-    success: function(result) {
-      response.success(result);
+    success: function(favs) {
+      var resultados = [];
+      for (var i = 0; i < favs.length; i++) {
+        var resultado = (favs[i].toJSON());
+        var user = favs[i].get("user");
+        var pais = user.get("pais");
+        resultado["user"] = user;
+        resultado["pais"] = pais;
+        resultados.push(resultado);
+      }
+      response.success(resultados);
     },
     error: function(error) {
       response.error({'resp': error.code, 'message': error.message});

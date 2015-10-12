@@ -1,15 +1,27 @@
 //Obtenemos nuestros seguidores
 Parse.Cloud.define("listOfUsersFollowingTo", function(request, response) {
   var query = new Parse.Query("Seguidores");
+
   query.equalTo("from", {
     __type: "Pointer",
-    className: "User",
-    id: request.params.objectId
+    className: "_User",
+    objectId: request.params.objectId
   });
+
+  query.include(["from", "from.pais"]);
 
   query.find({
     success: function(seguidores) {
-      response.sucess(seguidores);
+      var resultados = [];
+      for (var i = 0; i < seguidores.length; i++) {
+        var resultado = (seguidores[i].toJSON());
+        var user = seguidores[i].get("user");
+        var pais = user.get("pais");
+        resultado["user"] = user;
+        resultado["pais"] = pais;
+        resultados.push(resultado);
+      }
+      response.success(resultados);
     },
     error: function(error) {
       response.error({'resp': error.code, 'message': error.message});
@@ -22,8 +34,28 @@ Parse.Cloud.define("listOfUserWhoAreFollowingMe", function(request, response) {
   var query = new Parse.Query("Seguidores");
   query.equalTo("to", {
     __type: "Pointer",
-    className: "User",
-    id: request.params.objectId
+    className: "_User",
+    objectId: request.params.objectId
+  });
+
+  query.include(["from", "from.pais"]);
+
+  query.find({
+    success: function(seguidores) {
+      var resultados = [];
+      for (var i = 0; i < seguidores.length; i++) {
+        var resultado = (seguidores[i].toJSON());
+        var user = seguidores[i].get("user");
+        var pais = user.get("pais");
+        resultado["user"] = user;
+        resultado["pais"] = pais;
+        resultados.push(resultado);
+      }
+      response.success(resultados);
+    },
+    error: function(error) {
+      response.error({'resp': error.code, 'message': error.message});
+    }
   });
 });
 
