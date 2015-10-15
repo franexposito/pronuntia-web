@@ -46,31 +46,26 @@ Parse.Cloud.define("listAudiosMobile", function(request, response) {
   }).then(function(favsT) {
     favs = favsT;
   }).then(function() {
-    var resultados = [];
     for (var i = 0; i < audios.length; i++) {
-      var resultado = (audios[i].toJSON());
-      resultado["megusta"] = false;
-      resultado["favorito"] = false;
+      audios["megusta"] = false;
+      audios["favorito"] = false;
       var idAudio = audios[i].get("user").id;
       for (var j = 0; j < likes.length; j++) {
         if (idAudio == likes[j].get("from").id) {
-          resultado["megusta"] = true;
+          audios["megusta"] = true;
           break;
         }
       }
       for (var g = 0; g < favs.length; g++) {
         if (idAudio == likes[g].get("from").id) {
-          resultado["favorito"] = true;
+          audios["favorito"] = true;
           break;
         }
       }
       var user = audios[i].get("user");
       var pais = user.get("pais");
-      resultado["user"] = user;
-      resultado["pais"] = pais;
-      resultados.push(resultado);
     }
-    response.success(resultados);
+    response.success(audios);
   }, function(error) {
     response.error({'resp': error.code, 'message': error.message});
   });
