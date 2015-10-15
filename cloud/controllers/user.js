@@ -83,6 +83,7 @@ Parse.Cloud.define("existsUserWithUsername", function(request, response) {
 //Obtenemos un usuario cuyo objectId sea igual al pasado por parametro
 Parse.Cloud.define("getUserByObjectId", function(request, response) {
   var query = new Parse.Query(Parse.User);
+  query.include("pais");
   query.get(request.params.objectId, {
     success: function(result) {
       if (results.length > 0) {
