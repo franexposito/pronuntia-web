@@ -11,16 +11,7 @@ Parse.Cloud.define("getFavoriteAudiosFromUserId", function(request, response) {
 
   query.find({
     success: function(favs) {
-      var resultados = [];
-      for (var i = 0; i < favs.length; i++) {
-        var resultado = (favs[i].toJSON());
-        var user = favs[i].get("user");
-        var pais = user.get("pais");
-        resultado["user"] = user;
-        resultado["pais"] = pais;
-        resultados.push(resultado);
-      }
-      response.success(resultados);
+      response.success(favs);
     },
     error: function(error) {
       response.error({'resp': error.code, 'message': error.message});
@@ -29,7 +20,7 @@ Parse.Cloud.define("getFavoriteAudiosFromUserId", function(request, response) {
 });
 
 Parse.Cloud.define("favoriteAudio", function (request, response) {
-  var Favoritos = Parse.Object.extends("Favoritos");
+  var Favoritos = Parse.Object.extend("Favoritos");
   var fav = new Favoritos();
 
   fav.set("from", Parse.User.current());
