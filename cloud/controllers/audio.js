@@ -38,7 +38,6 @@ Parse.Cloud.define("listAudiosMobile", function(request, response) {
     favs = favsT;
   }).then(function() {
     for (var i = 0; i < audios.length; i++) {
-      var resultado = (audios[i].toJSON());
       (audios[i])["megusta"] = false;
       (audios[i])["favorito"] = false;
       var idAudio = audios[i].get("user").id;
@@ -49,7 +48,7 @@ Parse.Cloud.define("listAudiosMobile", function(request, response) {
         }
       }
       for (var g = 0; g < favs.length; g++) {
-        if (idAudio == likes[g].get("from").id) {
+        if (idAudio == favs[g].get("from").id) {
           (audios[i])["favorito"] = true;
           break;
         }

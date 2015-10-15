@@ -20,7 +20,7 @@ Parse.Cloud.define("getFavoriteAudiosFromUserId", function(request, response) {
 });
 
 Parse.Cloud.define("favoriteAudio", function (request, response) {
-  var Favoritos = Parse.Object.extends("Favoritos");
+  var Favoritos = Parse.Object.extend("Favoritos");
   var fav = new Favoritos();
 
   fav.set("from", Parse.User.current());

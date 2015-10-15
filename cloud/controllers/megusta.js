@@ -1,5 +1,5 @@
 Parse.Cloud.define("likeAudio", function(request, response) {
-  var MeGusta = Parse.Object.extends("MeGusta");
+  var MeGusta = Parse.Object.extend("MeGusta");
   var gusta = new MeGusta();
 
   gusta.set("from", Parse.User.current());
