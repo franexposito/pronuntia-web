@@ -6,8 +6,12 @@ Parse.Cloud.define("getFavoriteAudiosFromUserId", function(request, response) {
     className: "_User",
     objectId: request.params.objectId
   });
-  query.include("user");
-  query.include("user.pais");
+  
+  //query.include("from");
+  //query.include("from.pais");
+  query.include("to");
+  query.include("to.user");
+  query.include("to.user.pais");
 
   query.find({
     success: function(favs) {
@@ -53,3 +57,39 @@ Parse.Cloud.afterSave("Favoritos", function(request) {
   user.increment("favoritos");
   user.save();
 });
+
+Parse.Cloud.define("disFavoriteAudio", function (request, response) {
+  var query = new Parse.Query("Favoritos");
+  query.equalTo("from", Parse.User.current());
+  query.equalTo("to", request.params.audio);
+
+  query.find({
+    success: function(fav) {
+      fav.destroy({
+        success: function() {
+          response.success(true);
+        },
+        error: function(error2) {
+          response.error("Error Message:" + error2.code + " " + error2.message);
+        }
+      });
+    },
+    error: function(error1) {
+      response.error("Error Message:" + error1.code + " " + error1.message);
+    }
+  });
+});
+
+Parse.Cloud.afterDelete("MeGusta", function(request) {
+  var audioId = request.object.get("to").id;
+
+  var Audio = Parse.Object.extend("Audios");
+  var query = new Parse.Query(Audio);
+  query.get(audioId).then( function(audio) {
+    audio.decrement("favoritos");
+    audio.save();
+  }, function(error) {
+    throw "Got an error " + error.code + " : " + error.message;
+  });
+});
+

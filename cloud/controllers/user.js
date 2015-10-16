@@ -86,14 +86,14 @@ Parse.Cloud.define("getUserByObjectId", function(request, response) {
   query.include("pais");
   query.get(request.params.objectId, {
     success: function(result) {
-      if (result.length > 0) {
-        response.success(result[0]);
+      if (result) {
+        response.success(result);
       } else {
-        response.success(false);
+        response.success(null);
       }
     },
     error: function(error) {
-      response.error({'resp': error.code, 'message': error.message});
+      response.error({'message': error.message});
     }
   });
 });
