@@ -80,7 +80,7 @@ Parse.Cloud.define("disFavoriteAudio", function (request, response) {
   });
 });
 
-Parse.Cloud.afterDelete("MeGusta", function(request) {
+Parse.Cloud.afterDelete("Favoritos", function(request) {
   var audioId = request.object.get("to").id;
 
   var Audio = Parse.Object.extend("Audios");
