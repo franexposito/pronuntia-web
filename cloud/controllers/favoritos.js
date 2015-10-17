@@ -8,9 +8,11 @@ Parse.Cloud.define("getFavoriteAudiosFromUserId", function(request, response) {
   });
   
   //query.include("from");
+  //query.include("from.monigote");
   //query.include("from.pais");
   query.include("to");
   query.include("to.user");
+  query.include("to.user.monigote");
   query.include("to.user.pais");
 
   query.find({

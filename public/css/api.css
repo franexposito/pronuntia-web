@@ -61,9 +61,21 @@ nav h1 {
   color: #848484;
 }
 
-.menu li ul {
+.menu li > ul {
   list-style: none;
   padding: 0 17px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.menu li > ul:before {
+  content: '';
+  width: 5px;
+  position: absolute;
+  height: 100%;
+  background: #e7e7e7;
+  top: 0;
+  left: 35px;
 }
 
 .main {
@@ -72,7 +84,7 @@ nav h1 {
 
 .bloque {
   margin-bottom: 15px;
-  padding-left: 320px;
+  padding-left: 400px;
 }
 
 .bloque h1 {
