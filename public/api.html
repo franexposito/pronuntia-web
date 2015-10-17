@@ -35,6 +35,7 @@
         <li><a href="#existsUserWithEmail">Comprobar email</a></li>
         <li><a href="#existsUserWithUsername">Comprobar username</a></li>
         <li><a href="#getUserByObjectId">Obtener usuario por ObjectId</a></li>
+        <li><a href="#setBio">Actualiza la bio del usuario</a></li>
       </ul>
     </li>
     <li><a href="#audios">Audios</a>
@@ -42,6 +43,7 @@
         <li><a href="#listAudios">Obtener audios</a></li>
         <li><a href="#addAudio">Añadir audio</a></li>
         <li><a href="#getAudioFromUser">Obtener audio de un usario</a></li>
+        <li><a href="#listAudiosMobile">Obtener audios de un usuario con me gustas y favoritos</a></li>
       </ul>
     </li>
     <li><a href="#comentarios">Comentarios</a>
@@ -52,19 +54,24 @@
     <li><a href="#favoritos">Favoritos</a>
       <ul>
         <li><a href="#getFavoriteAudiosFromUserId">getFavoriteAudiosFromUserId</a></li>
+        <li><a href="#favoriteAudio">Añadir a favoritos</a></li>
+        <li><a href="#disFavoriteAudio">Eliminar de favoritos</a></li>
       </ul>
     </li>
     <li><a href="#seguidores">Seguidores</a>
       <ul>
         <li><a href="#listOfUsersFollowingTo">Obtener seguidores de un usuario</a></li>
         <li><a href="#listOfUserWhoAreFollowingMe">Obtener quien sigue a un usuario</a></li>
+        
+        <li><a href="#amIfollowingTo">Comprobar si soy seguido por un usuario</a></li>
       </ul>
     </li>
   </ul>
 
   <main class="container-fluid main">
-    <div class="col-sm-12 bloque">
-      <h1 id="usuarios">Usuarios</h1>
+    <!-- Usuarios -->
+    <div id="usuarios" class="col-sm-12 bloque">
+      <h1>Usuarios</h1>
     </div>
     <div id="signUp" class="col-sm-12 bloque pad20">
       <h2>signUp</h2>
@@ -126,11 +133,25 @@
         <li>objectId: String</li>
       </ul>
       <h4>Success</h4>
-      <p>ParseObject</p>
+      <p>ParseObject&#60;User&#62;</p>
       <h4>Error</h4>
       <p>Error Message: error.code + error.message</p>
     </div>
-
+    
+    <div id="setBio" class="col-sm-12 bloque pad20">
+      <h2>setBio</h2>
+      <p>Actualizamos la bio del usuario logueado</p>
+      <h4>Parametros</h4>
+      <ul>
+        <li>bio: String</li>
+      </ul>
+      <h4>Success</h4>
+      <p>true</p>
+      <h4>Error</h4>
+      <p>Error Message: error.code + error.message</p>
+    </div>
+    
+    <!-- Audios -->
     <div id="audios" class="col-sm-12 bloque">
       <h1>Audios</h1>
     </div>
@@ -142,11 +163,24 @@
 
       </ul>
       <h4>Success</h4>
-      <p>ParseObject</p>
+      <p>ParseObject&#60;User&#62;</p>
       <h4>Error</h4>
       <p>Error Message: error.code + error.message</p>
     </div>
+    
+    <div id="listAudiosMobile" class="col-sm-12 bloque">
+      <h2>listAudiosMobile</h2>
+      <p>Obtenemos todos los audios del sistema y además añade la información sobre megustas y favs</p>
+      <h4>Parametros</h4>
+      <ul>
 
+      </ul>
+      <h4>Success</h4>
+      <p>ParseObject&#60;User&#62;</p>
+      <h4>Error</h4>
+      <p>Error Message: error.code + error.message</p>
+    </div>
+    
     <div id="addAudio" class="col-sm-12 pad20 bloque">
       <h2>addAudio</h2>
       <p>Permite añadir un audio creado por un usuario</p>
@@ -174,7 +208,8 @@
       <h4>Error</h4>
       <p>Error Message: error.code + error.message</p>
     </div>
-
+    
+    <!-- Comentarios -->
     <div id="comentarios" class="col-sm-12 bloque">
       <h1>Comentarios</h1>
     </div>
@@ -191,22 +226,50 @@
       <p>Error Message: error.code + error.message</p>
     </div>
 
+    <!-- Favoritos -->
     <div id="favoritos" class="col-sm-12 bloque">
       <h1>Favoritos</h1>
     </div>
     <div id="getFavoriteAudiosFromUserId" class="col-sm-12 bloque pad20">
       <h2>getFavoriteAudiosFromUserId</h2>
-      <p></p>
+      <p>Obtiene una lista con todos los audios que son favoritos del usuario logueado</p>
       <h4>Parametros</h4>
       <ul>
         <li>objectId: String</li>
       </ul>
       <h4>Success</h4>
-      <p>List&#60;HashMap&#60;String, Object&#62;&#62;</p>
+      <p>List&#60;ParseObject&#62;</p>
+      <h4>Error</h4>
+      <p>Error Message: error.code + error.message</p>
+    </div>
+    
+    <div id="favoriteAudio" class="col-sm-12 bloque pad20">
+      <h2>favoriteAudio</h2>
+      <p>Añada a los favoritos de un usuario el audio pasado por parametro</p>
+      <h4>Parametros</h4>
+      <ul>
+        <li>audio: String (id audio)</li>
+      </ul>
+      <h4>Success</h4>
+      <p>true</p>
+      <h4>Error</h4>
+      <p>Error Message: error.code + error.message</p>
+    </div>
+    
+    <div id="disFavoriteAudio" class="col-sm-12 bloque pad20">
+      <h2>disFavoriteAudio</h2>
+      <p>Elimina de favoritos del usuario logueado el audio pasado por parametro </p>
+      <h4>Parametros</h4>
+      <ul>
+        <li>audio: String (id audio)</li>
+      </ul>
+      <h4>Success</h4>
+      <p>true</p>
       <h4>Error</h4>
       <p>Error Message: error.code + error.message</p>
     </div>
 
+    <!-- Seguidores -->
     <div id="seguidores" class="col-sm-12 bloque">
       <h1>Seguidores</h1>
     </div>
@@ -222,6 +285,7 @@
       <h4>Error</h4>
       <p>Error Message: error.code + error.message</p>
     </div>
+    
     <div id="listOfUserWhoAreFollowingMe" class="col-sm-12 bloque pad20">
       <h2>listOfUserWhoAreFollowingMe</h2>
       <p>Obtiene la lista de la gente que me sigue</p>
@@ -230,10 +294,25 @@
         <li>objectId: String</li>
       </ul>
       <h4>Success</h4>
-      <p>List&#60;HashMap&#60;String, Object&#62;&#62;</p>
+      <p>List&#60;ParseObject&#62;</p>
       <h4>Error</h4>
       <p>Error Message: error.code + error.message</p>
     </div>
+    
+    <div id="amIfollowingTo" class="col-sm-12 bloque pad20">
+      <h2>amIfollowingTo</h2>
+      <p>Comprobamos si soy seguido por un usuario</p>
+      <h4>Parametros</h4>
+      <ul>
+        <li>objectId: String</li>
+      </ul>
+      <h4>Success</h4>
+      <p>true si es correcto</p>
+      <p>false si es incorrecto</p>
+      <h4>Error</h4>
+      <p>Error Message: error.code + error.message</p>
+    </div>
+    
   </main>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

@@ -3,7 +3,7 @@ var _ = require('underscore');
 //Obtengo todos los Audios
 Parse.Cloud.define("listAudios", function(request, response) {
   var query = new Parse.Query("Audios");
-  query.include(["user", "user.pais"]);
+  query.include(["user", "user.pais", "user.monigote"]);
   query.find({
     success: function(audios) {
       response.success(audios);
@@ -22,7 +22,7 @@ Parse.Cloud.define("listAudiosMobile", function(request, response) {
   var idUser = Parse.User.current();
 
   var queryA = new Parse.Query("Audios");
-  queryA.include(["user", "user.pais"]);
+  queryA.include(["user", "user.pais", "user.monigote"]);
 
   queryA.find().then(function(audiosT) {
     audios = audiosT;

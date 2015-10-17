@@ -8,9 +8,11 @@ Parse.Cloud.define("listComments", function(request, response) {
   });
   //incluimos el usuario
   query.include("fromId");
+  query.include("fromId.monigote");
   query.include("fromId.pais");
   query.include("toAudio");
   query.include("toAudio.user");
+  query.include("toAudio.user.monigote");
   query.include("toAudio.user.pais");
 
   query.find({

@@ -84,6 +84,7 @@ Parse.Cloud.define("existsUserWithUsername", function(request, response) {
 Parse.Cloud.define("getUserByObjectId", function(request, response) {
   var query = new Parse.Query(Parse.User);
   query.include("pais");
+  query.include("monigote");
   query.get(request.params.objectId, {
     success: function(result) {
       if (result) {
@@ -94,6 +95,21 @@ Parse.Cloud.define("getUserByObjectId", function(request, response) {
     },
     error: function(error) {
       response.error({'message': error.message});
+    }
+  });
+});
+
+//Introducimos la bio
+Parse.Cloud.define("setBio", function(request, response) {
+  var user = Parse.User.current();
+  user.set("bio", request.params.bio);
+  
+  user.save(null, {
+    success: function(user) {
+      response.success(true);
+    },
+    else: function(error) {
+      response.error({'resp': error.code, 'message': error.message});
     }
   });
 });
