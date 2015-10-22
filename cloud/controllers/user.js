@@ -103,7 +103,7 @@ Parse.Cloud.define("getUserByObjectId", function(request, response) {
 Parse.Cloud.define("setBio", function(request, response) {
   var user = Parse.User.current();
   user.set("bio", request.params.bio);
-  
+
   user.save(null, {
     success: function(user) {
       response.success(true);
@@ -113,3 +113,26 @@ Parse.Cloud.define("setBio", function(request, response) {
     }
   });
 });
+
+
+
+/*************************************************************************************/
+exports.profile = function (req, res) {
+  var query = new Parse.Query(Parse.User);
+  var userF;
+  var audiosArray = [];
+
+  query.include("pais");
+  query.equalTo("username", req.params.username);
+  query.first().then( function(user) {
+    userF = user;
+    var queryAudio = new Parse.Query("Audios");
+    queryAudio.include("pais");
+    queryAudio.equalTo("user", user);
+    return queryAudio.find();
+  }).then(function(audio) {
+    res.render('perfil/profile', {usuario: userF, audios: audio});
+  }, function() {
+    res.send(500, 'User not found');
+  });
+}

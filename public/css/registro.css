@@ -40,73 +40,56 @@ body {
 }
 
 .registro-cont {
-  padding: 0;
-  margin-top: 50px;
-}
-
-.registro-cont .imagen a {
-  text-align: center;
-  color: white;
-  display: block;
-}
-
-.registro-cont .imagen img {
-  margin-bottom: 5px;
-  height: 100px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  /*border: 4px solid #24b3f0;
-  border-radius: 100px;*/
+  margin-top: 30px;
 }
 
 .formulario {
-  padding: 0;
+  padding: 10px 30px;
   margin-top: 15px;
   margin-bottom: 25px;
+  background: #fff;
+  border-radius: 5px;
 }
 
 .formulario .title {
-  background: white;
-  color: #00a8f0;
+  color: #a4a4a4;
   text-align: center;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  border-bottom: 1px solid #00a8f0;
 }
 
 .formulario .title h1 {
-  font-size: 15px;
-  padding: 10px;
+  font-size: 25px;
   margin: 0;
+  font-weight: bold;
+  padding: 15px 0;
 }
 
 .formulario .form {
-  padding-left: 30px;
-  padding-top: 10px;
-  background: white;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  padding: 10px 40px;
 }
 
 .formulario .form .form-group {
   padding: 0;
   position: relative;
-  margin-bottom: 7px;
+  margin-bottom: 15px;
 }
 
 .formulario .form .form-group .form-control {
   border: none;
   box-shadow: none;
-  border-radius: 0;
-  border-bottom: 1px solid #ededed;
+  border-radius: 5px;
+  border: 2px solid #ededed;
+  padding: 20px;
   padding-left: 30px;
   font-size: 15px;
   color: #00a8f0;
 }
 
-.formulario .form .form-group:last-child .form-control {
-  border-bottom: none;
+.formulario .form .form-group select.form-control {
+  padding-left: 25px;
+  color: #999cac;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 43px;
 }
 
 .formulario .form .form-group .error {
@@ -137,8 +120,8 @@ body {
   background: #00a8f0;
   border-radius: 10px;
   position: absolute;
-  top: 12px;
-  left: 1px;
+  top: 17px;
+  left: 10px;
 }
 
 .formulario .form .form-group .dot.active {
@@ -148,42 +131,103 @@ body {
 
 .condiciones {
   text-align: left;
-  color: white;
+  color: #9a9a9a;
   margin-top: 10px;
   font-size: 14px;
+  padding: 0 50px;
 }
 
 .condiciones a {
-  color: #fff;
+  color: #c4c4c4;
 }
 
 .banderas {
   display: none;
-  margin-top: -16px;
+  margin-top: -21px;
   position: relative;
-  background: #ededed;
-  padding: 10px 0;
+  background: #fff;
+  padding: 10px 30px 25px 30px;
   list-style: none;
-}
-
-.banderas:after,
-.banderas:before {
-  top: 0;
-  position: absolute;
-  content: '';
-  height: 100%;
-  width: 30px;
-  background: #ededed;
-}
-
-.banderas:before {
-  left: -30px;
-}
-
-.banderas:after {
-  right: -15px;
+  border: 2px solid #ededed;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .banderas li {
+  cursor: pointer;
+  padding: 10px 0 0 0;
+  border: 3px solid #f5f5f5;
   display: inline-block;
+  margin-right: 10px;
+  border-radius: 3px;
+}
+
+.banderas li:hover {
+  background: #f9f9f9;
+}
+
+.banderas li:hover p {
+  background: #f5f5f5;
+}
+
+.banderas li a img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40px;
+}
+
+.banderas li a p {
+  color: #00a8f0;
+  margin: 10px 0 0;
+  padding: 10px 15px;
+  border-top: 3px solid #f5f5f5;
+}
+
+.banderas li a:hover {
+  text-decoration: none;
+}
+
+.ld {
+  display: none;
+  position: absolute;
+  top: 12px;
+  right: 85px;
+}
+
+.banderas h1 {
+  margin: 7px 0;
+  padding: 0;
+  font-size: 14px;
+  color: #c4c4c4;
+  font-weight: bold;
+}
+
+.btn-sub {
+  border: none;
+  margin-top: 20px;
+  border-radius: 5px;
+  color: #fff;
+  padding: 7px 0;
+  font-size: 20px;
+  background: #00ee4a;
+}
+
+.btn-sub:hover {
+  color: #fff;
+  background: #00ee4a;
+}
+
+.btn-sub.disabled {
+  color: #fff;
+  background: #00ee4a;
+}
+
+.bot {
+  padding: 0 30px;
+}
+
+#pro {
+  display: none;
 }

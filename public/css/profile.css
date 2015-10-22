@@ -170,7 +170,6 @@
 .profile-info .profile-foto .sig {
   color: #00ee4a;
   border-color: #00ee4a;
-  display: none;
 }
 
 .profile-info .profile-foto .seg {
@@ -186,7 +185,6 @@
 .profile-info .profile-foto .unfollow {
   color: #ff4444;
   border-color: #ff4444;
-  display: none;
 }
 
 .profile-info .profile-foto .sig:hover {
