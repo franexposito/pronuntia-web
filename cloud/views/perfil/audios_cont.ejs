@@ -1,0 +1,46 @@
+<!-- contenedor de la columna central y derecha -->
+<section class="pronuntias-cont col-sm-12">
+  <!-- contenedor de la columna central que contiene las pronunciaciones del usuario -->
+  <section class="col-sm-9 all-pronuntias">
+    <!-- cada una de las pronunciaciones -->
+    <% audios.forEach(function(audio) { %>
+    <div class="p-cont col-sm-4">
+      <div class="col-sm-12 header-pronuntia"></div>
+      <div class="col-xs-12 rest">
+        <div class="col-sm-12 pronuntia-principal pad0">
+          <div class="col-sm-12 nombre pad0">
+            <a href='#'><%= audio.get('palabra') %></a>
+          </div>
+          <div class="col-sm-12 play">
+            <a href="#"> <img src="img/play.png" alt="play"></a>
+          </div>
+          <div class="col-sm-12 col-height fecha pad0">
+            <img src="/img/es-2.png" />
+            <h3><%= formatTimeAudio(audio.createdAt) %></h3>
+          </div>
+        </div>
+      </div>
+      <div class="bottom col-sm-12 pad0">
+        <a href=""><img src="img/replay.png"> <%= audio.get("escuchado") %></a>
+        <a href=""><img src="img/fav.png"> <%= audio.get("favoritos") %></a>
+        <a href=""><img src="img/comments.png"> <%= audio.get("comentarios") %></a>
+        <a id="excl" href=""><img src="img/excla.png"></a>
+        <a href=""><img src="img/share.png"></a>
+      </div>
+    </div>
+    <% }) %>
+  </section>
+  <!-- contenedor de la columna derecha -->
+  <aside class="col-sm-3 basic-info">
+    <!-- información sobre pronuntia -->
+    <ul class="col-sm-12 about-pronuntia">
+      <li>©2015 Pronuntia </li>
+      <li><a href="">Sobre nosotros </a></li>
+      <li><a href="">Ayuda </a></li>
+      <li><a href="">Condiciones </a></li>
+      <li><a href="">Privacidad </a></li>
+      <li><a href="">Cookies </a></li>
+      <li><a href="">Contacto </a></li>
+    </ul>
+  </aside>
+</section>

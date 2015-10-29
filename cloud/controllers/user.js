@@ -24,11 +24,11 @@ Parse.Cloud.define("signUp", function(request, response) {
     if (request.params.monigoteElegido != null ) {
       var Monigotes = Parse.Object.extend('Monigotes');
       user.set("monigote", new Monigotes({id: request.params.monigoteElegido}));
-      user.set("imageprofile", null);
+      user.set("imageprofile", undefined);
     }
   } else {
     if (request.params.imageprofile != null) {
-      user.set("monigote", null);
+      user.set("monigote", undefined);
       var myImageProfile = new Parse.File("avatar.png", request.params.imageprofile);
       user.set("imageprofile", myImageProfile);
     }
@@ -108,14 +108,67 @@ Parse.Cloud.define("setBio", function(request, response) {
     success: function(user) {
       response.success(true);
     },
-    else: function(error) {
+    error: function(error) {
       response.error({'resp': error.code, 'message': error.message});
     }
   });
 });
 
+//Registro desde web
+Parse.Cloud.define("signUpWeb", function(request, response) {
+  var num = 0;
+  var user = new Parse.User();
+  user.set("username", request.params.username);
+  user.set("password", request.params.password);
+  user.set("email", request.params.email);
+  var Pais = Parse.Object.extend('Pais');
+  user.set("pais", new Pais({id: request.params.pais}));
+  user.set("isFacebook", request.params.isFacebook);
+  user.set("sexo", request.params.sexo);
+  user.set("pueblo", request.params.pueblo);
+  user.set("provincia", request.params.provincia);
+  user.set("region", request.params.region);
 
+  user.set("seguidores", num);
+  user.set("siguiendo", num);
+  user.set("favoritos", num);
+  user.set("audios", num);
 
+  user.signUp(null, {
+    success: function(user) {
+      response.success(true);
+    },
+    error: function(user, error) {
+      response.error("Error Message:" + error.code + " " + error.message);
+    }
+  });
+
+});
+
+Parse.Cloud.define("setImageFromUser", function (request, response) {
+  var user = Parse.User.current();
+  if (request.params.monigoteBool == true) {
+    if (request.params.monigoteElegido != null ) {
+      var Monigotes = Parse.Object.extend('Monigotes');
+      user.set("monigote", new Monigotes({id: request.params.monigoteElegido}));
+      user.set("imageprofile", undefined);
+    }
+  } else {
+    if (request.params.imageprofile != null) {
+      user.set("monigote", undefined);
+      user.set("imageprofile", request.params.imageprofile);
+    }
+  }
+
+  user.save(null, {
+    success: function(user) {
+      response.success(true);
+    },
+    error: function(error) {
+      response.error("Error Message:" + error.code + " " + error.message);
+    }
+  });
+});
 /*************************************************************************************/
 exports.profile = function (req, res) {
   var query = new Parse.Query(Parse.User);
@@ -123,6 +176,7 @@ exports.profile = function (req, res) {
   var audiosArray = [];
 
   query.include("pais");
+  query.include("monigote");
   query.equalTo("username", req.params.username);
   query.first().then( function(user) {
     userF = user;
@@ -132,6 +186,7 @@ exports.profile = function (req, res) {
     return queryAudio.find();
   }).then(function(audio) {
     res.render('perfil/profile', {usuario: userF, audios: audio});
+    //res.send(userF);
   }, function() {
     res.send(500, 'User not found');
   });

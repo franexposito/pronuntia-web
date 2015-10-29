@@ -1,0 +1,43 @@
+<section class="col-sm-12 foto-cont">
+  <h1>Tu cuenta ya está casi lista. Ahora puedes escoger tu foto de perfil o puedes seleccionar uno de nuestros
+  monigotes. ¡Tú eliges!</h1>
+  <div class="monigot-cont col-sm-6">
+    <ul class="monigotes-cont">
+      <% monigotes.forEach( function(m) { %>
+        <li><a data-id="<%= m.id %>" href="#"><img src="<%= m.get('file').url() %>"></a></li>
+      <% }) %>
+    </ul>
+    <div class="monigote-btn col-sm-12">
+      <button class="btn btn-default btn-img disabled">Guardar monigote</button>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="col-sm-12 preview-cont">
+      <img id="preview" src="img/preview.png" >
+        <div id="imagenUsuario">
+          <span class="btn-img">
+            <span>Subir imagen</span>
+            <input type='file' id="imgInp" />
+          </span>
+        </div>
+    </div>
+
+    <div class="info col-sm-12">
+      <p>Para subir la imagen pulsa sobre el icono de arriba, selecciona la imagen que quieras y pulsa sobre el botón de abajo.</p>
+      <p>De momento solo admitimos los siguientes formatos:</p>
+      <ul>
+        <li>jpeg</li>
+        <li>png</li>
+      </ul>
+
+      <p>Además, la imagen no puede pasar más de 2MB</p>
+    </div>
+
+    <div class="final-botton col-sm-12">
+      <button class="btn btn-default btn-img disabled">Guardar imagen</button>
+    </div>
+
+  </div>
+
+</section>

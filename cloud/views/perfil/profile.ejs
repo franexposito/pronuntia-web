@@ -1,23 +1,8 @@
-<!DOCTYPE html>
+<% var stylesheet = "profile" %>
+<% var title = "Perfil" %>
+<% var js = "profile" %>
+<% include ../header %>
 
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pronuntia</title>
-
-  <!-- BOOSTRAP -->
-  <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-  <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
-  <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link type="text/css" rel="stylesheet" href="css/common.css">
-  <link type="text/css" rel="stylesheet" href="css/profile.css">
-</head>
-<body class="">
   <!-- menu de notificaciones que aparece de izquierda a derecha -->
   <article id="menuM" class="notifiaciones">
     <!-- titulo del menu de notificaciones -->
@@ -37,7 +22,7 @@
     <nav class="menu">
       <section class="notification-boton-cont">
         <a id="menu-bottom" href="#"><i class="fa fa-user"></i>
-        <span class="badge-noti">34</span></a>
+        <span class="badge-noti">0</span></a>
       </section>
 
       <section class="titulo-pronuntia">
@@ -48,120 +33,11 @@
 
       </section>
     </nav>
-    <!-- columna izquierda que contiene la información del perfil -->
-    <section class="profile-info-cont">
-      <!-- contenedor con la foto, nombre, fecha e info de seguimiento -->
-      <div class="profile-info col-sm-12">
-        <div class="col-sm-5 profile-foto">
-          <img class="fot" src="<%= usuario.get('imageprofile').url() %>" alt="avatar">
-          <!-- <% if(true){ %> <a class="seg" href="#"><i class="fa fa-plus"></i> Seguir</a> <% } %> -->
-          <a class="sig" href="#">Siguiendo</a>
-          <!--  <a class="unfollow" href="#">Dejar de seguir</a> -->
-        </div>
-        <div class="col-sm-7 profile-name">
-          <h1><%= usuario.get('username') %></h1>
-          <img src="<%= usuario.get('pais').get('bandera_file').url() %>" >
-          <h3>Se unió en <%= formatTime(usuario.createdAt) %></h3>
-        </div>
-      </div>
-      <!-- contenedor con la descripcion del perfil, localizacion y pagina web -->
-      <div class="profile-description col-sm-12">
-        <article class="localizacion"><p><%= usuario.get('pueblo') %>, <%= usuario.get('provincia') %></p></article>
-        <article class="descripcion"><p><%= usuario.get('bio').replace(/\n/g, '<br />') %></p></article>
-        <article class="web"><p><a href="">http://facebook.com/george.awad3</a></p></article>
-      </div>
-      <!-- contenedor con la informacion de los seguidores, seguidos y favoritos del usuario -->
-      <div class="profile-follows col-sm-12">
-        <div class="col-sm-12 row-d">
-          <div class="col-xs-4 active">
-            <div class="col-xs-12 titulo"><h1>seguidores</h1></div>
-            <div class="col-xs-12 cifras"><a href="#"><%= usuario.get('seguidores') %></a></div>
-          </div>
-          <div class="col-xs-4">
-            <div class="col-xs-12 titulo"><h1>siguiendo</h1></div>
-            <div class="col-xs-12 cifras"><a href="#"><%= usuario.get('siguiendo')  %></a></div>
-          </div>
-          <div class="col-xs-4">
-            <div class="col-xs-12 titulo"><h1>favoritos</h1></div>
-            <div class="col-xs-12 cifras"><a href="#"><%= usuario.get('favoritos') %></a></div>
-          </div>
-        </div>
-        <div class="col-sm-12 row-e">
-          <article class="fow active">
-            Seguidores
-            <div class="ver">
-              <a href="">Ver todos</a>
-            </div>
-          </article>
-          <article class="fow">
-            Siguiendo
-            <div class="ver">
-              <a href="">Ver todos</a>
-            </div>
-          </article>
-          <article class="fow">
-            Favoritos
-            <div class="ver">
-              <a href="">Ver todos</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+    <% include info_user %>
 
-    <!-- contenedor de la columna central y derecha -->
-    <section class="pronuntias-cont col-sm-12">
-      <!-- contenedor de la columna central que contiene las pronunciaciones del usuario -->
-      <section class="col-sm-9 all-pronuntias">
-        <!-- cada una de las pronunciaciones -->
-        <% audios.forEach(function(audio) { %>
-        <div class="p-cont col-sm-4">
-          <div class="col-sm-12 header-pronuntia"></div>
-          <div class="col-xs-12 rest">
-            <div class="col-sm-12 pronuntia-principal pad0">
-              <div class="col-sm-12 nombre pad0">
-                <a href='#'><%= audio.get('palabra') %></a>
-              </div>
-              <div class="col-sm-12 play">
-                <a href="#"> <img src="img/play.png" alt="play"></a>
-              </div>
-              <div class="col-sm-12 col-height fecha pad0">
-                <img src="/img/es-2.png" />
-                <h3><%= formatTimeAudio(audio.createdAt) %></h3>
-              </div>
-            </div>
-          </div>
-          <div class="bottom col-sm-12 pad0">
-            <a href=""><img src="img/replay.png"> <%= audio.get("escuchado") %></a>
-            <a href=""><img src="img/fav.png"> <%= audio.get("favoritos") %></a>
-            <a href=""><img src="img/comments.png"> <%= audio.get("comentarios") %></a>
-            <a id="excl" href=""><img src="img/excla.png"></a>
-            <a href=""><img src="img/share.png"></a>
-          </div>
-        </div>
-        <% }) %>
-      </section>
-      <!-- contenedor de la columna derecha -->
-      <aside class="col-sm-3 basic-info">
-        <!-- información sobre pronuntia -->
-        <ul class="col-sm-12 about-pronuntia">
-          <li>©2015 Pronuntia </li>
-          <li><a href="">Sobre nosotros </a></li>
-          <li><a href="">Ayuda </a></li>
-          <li><a href="">Condiciones </a></li>
-          <li><a href="">Privacidad </a></li>
-          <li><a href="">Cookies </a></li>
-          <li><a href="">Contacto </a></li>
-        </ul>
-      </aside>
-    </section>
+    <% include audios_cont %>
+
   </main>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/menu.js"></script>
-  <script type="text/javascript" src="js/profile.js"></script>
+<% include ../footer %>
 
-</body>
-
-</html>
