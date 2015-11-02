@@ -24,3 +24,16 @@ Parse.Cloud.define("listComments", function(request, response) {
     }
   });
 });
+
+Parse.Cloud.afterSave("Comentarios", function(request) {
+  var comId = request.object.get("toAudio").id;
+
+  var Audio = Parse.Object.extend("Audios");
+  var query = new Parse.Query(Audio);
+  query.get(comId).then( function(audio) {
+    audio.decrement("comentarios");
+    audio.save();
+  }, function(error) {
+    throw "Got an error " + error.code + " : " + error.message;
+  });
+});

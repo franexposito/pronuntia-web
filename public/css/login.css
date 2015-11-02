@@ -1,0 +1,187 @@
+body {
+  background: #00a8f0;
+}
+
+.nav {
+  background: #24b3f0;
+  height: 50px;
+}
+
+.nav .titulo-pronuntia h1 {
+  line-height: 50px;
+  margin: 0;
+  padding: 0;
+  font-size: 25px;
+  text-align: center;
+  color: #fff;
+}
+
+.nav .blank {
+  width: 20%;
+  float: left;
+  height: 50px;
+}
+
+.nav .titulo-pronuntia {
+  float: left;
+  width: 60%;
+}
+
+.nav .ini {
+  float: left;
+  width: 20%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.nav .ini a {
+  line-height: 50px;
+  color: #fff;
+}
+
+.login-cont {
+  margin-top: 50px;
+}
+
+.formulario {
+  padding: 10px 30px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.formulario .title {
+  color: #a4a4a4;
+  text-align: center;
+}
+
+.formulario .title h1 {
+  font-size: 25px;
+  margin: 0;
+  font-weight: bold;
+  padding: 15px 0;
+}
+
+.formulario .form {
+  padding: 10px 40px;
+}
+
+.formulario .form .form-group {
+  padding: 0;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.formulario .form .form-group .form-control {
+  border: none;
+  box-shadow: none;
+  border-radius: 5px;
+  border: 2px solid #ededed;
+  padding: 20px;
+  padding-left: 30px;
+  font-size: 15px;
+  color: #00a8f0;
+}
+
+.formulario .form .form-group select.form-control {
+  padding-left: 0;
+  text-indent: 25px;
+  color: #999cac;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 43px;
+}
+
+.formulario .form .form-group .dot {
+  width: 12px;
+  height: 12px;
+  background: #00a8f0;
+  border-radius: 10px;
+  position: absolute;
+  top: 17px;
+  left: 10px;
+}
+
+.formulario .form .form-group .dot.active {
+  background: #00ee4a;
+  /*background: #ff4444;*/
+}
+
+.error {
+  padding: 5px 10px;
+  color: #00a8f0;
+}
+
+.btn-sub {
+  border: none;
+  margin-top: 20px;
+  border-radius: 5px;
+  color: #fff;
+  padding: 7px 0;
+  font-size: 20px;
+  background: #00ee4a;
+}
+
+.btn-sub:hover {
+  color: #fff;
+  background: #00ee4a;
+}
+
+.btn-sub.disabled {
+  color: #fff;
+  background: #00ee4a;
+}
+
+.bot {
+  padding: 0 30px;
+}
+
+/**********************************
+Diseño de errores
+**********************************/
+
+.error-cont {
+  position: fixed;
+  width: 300px;
+  right: 0;
+  top: 50px;
+  bottom: 0;
+  background: none;
+  padding: 10px
+}
+
+.error_block {
+  display: none;
+  margin-bottom: 22px;
+  background: rgba(49, 112, 143, 0.5);
+  padding: 20px;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 15px;
+  position: relative;
+  font-weight: bold;
+}
+
+.error_block p {
+  margin: 0;
+}
+
+.error_block a {
+  color: #c6c6c6;
+}
+
+.error_block a.close_x {
+  margin: 0;
+  position: absolute;
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 150px;
+  font-weight: bold;
+  text-align: center;
+  top: -11px;
+  left: -10px;
+  color: white;
+  background: rgba(49, 112, 143, 0.5);
+}

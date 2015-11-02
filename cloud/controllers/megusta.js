@@ -3,14 +3,18 @@ Parse.Cloud.define("likeAudio", function(request, response) {
   var gusta = new MeGusta();
 
   gusta.set("from", Parse.User.current());
-  gusta.set("to", request.params.audio);
+  gusta.set("to", {
+      __type: "Pointer",
+      className: "Audio",
+      objectId: request.params.audio
+    });
 
   gusta.save(null, {
-    success: function() {
-      response.success(true);
+    success: function(like) {
+      response.success(like);
     },
     error: function(error) {
-      response.error("Error Message:" + error.code + " " + error.message);
+      response.error({'resp': error.code, 'message': error.message});
     }
   });
 });

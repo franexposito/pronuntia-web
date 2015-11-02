@@ -12,6 +12,12 @@ a:focus {
   text-decoration: none;
 }
 
+.btn:active,
+.btn:focus {
+  background: none;
+  border:none;
+}
+
 .btn-sub {
   border: none;
   margin-top: 20px;
