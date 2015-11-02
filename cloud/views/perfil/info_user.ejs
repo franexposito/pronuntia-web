@@ -1,0 +1,66 @@
+<!-- columna izquierda que contiene la información del perfil -->
+<section class="profile-info-cont">
+  <!-- contenedor con la foto, nombre, fecha e info de seguimiento -->
+  <div class="profile-info col-sm-12">
+    <div class="col-sm-5 profile-foto">
+      <% if(usuario.get('imageprofile') != undefined){ %> 
+        <img class="fot" src="<%= usuario.get('imageprofile').url() %>" alt="avatar">
+      <% } else{ %>
+        <img class="fot" src="<%= usuario.get('monigote').get('file').url() %>" alt="avatar">
+      <% } %>
+      <!-- <% if(true){ %> <a class="seg" href="#"><i class="fa fa-plus"></i> Seguir</a> <% } %> -->
+      <a class="sig" href="#">Siguiendo</a>
+      <!--  <a class="unfollow" href="#">Dejar de seguir</a> -->
+    </div>
+    <div class="col-sm-7 profile-name">
+      <h1><%= usuario.get('username') %></h1>
+      <img src="<%= usuario.get('pais').get('bandera_file').url() %>" >
+      <h3>Se unió en <%= formatTime(usuario.createdAt) %></h3>
+    </div>
+  </div>
+  <!-- contenedor con la descripcion del perfil, localizacion y pagina web -->
+  <div class="profile-description col-sm-12">
+    <article class="localizacion"><p><%= usuario.get('pueblo') %>, <%= usuario.get('provincia') %></p></article>
+    <% if (usuario.get('bio') != undefined) { %>
+      <article class="descripcion"><p><%= usuario.get('bio').replace(/\n/g, '<br />') %></p></article>
+    <% } %>
+    <article class="web"><p><a href="">http://facebook.com/george.awad3</a></p></article>
+  </div>
+  <!-- contenedor con la informacion de los seguidores, seguidos y favoritos del usuario -->
+  <div class="profile-follows col-sm-12">
+    <div class="col-sm-12 row-d">
+      <div class="col-xs-4 active">
+        <div class="col-xs-12 titulo"><h1>seguidores</h1></div>
+        <div class="col-xs-12 cifras"><a href="#"><%= usuario.get('seguidores') %></a></div>
+      </div>
+      <div class="col-xs-4">
+        <div class="col-xs-12 titulo"><h1>siguiendo</h1></div>
+        <div class="col-xs-12 cifras"><a href="#"><%= usuario.get('siguiendo')  %></a></div>
+      </div>
+      <div class="col-xs-4">
+        <div class="col-xs-12 titulo"><h1>favoritos</h1></div>
+        <div class="col-xs-12 cifras"><a href="#"><%= usuario.get('favoritos') %></a></div>
+      </div>
+    </div>
+    <div class="col-sm-12 row-e">
+      <article class="fow active">
+        Seguidores
+        <div class="ver">
+          <a href="">Ver todos</a>
+        </div>
+      </article>
+      <article class="fow">
+        Siguiendo
+        <div class="ver">
+          <a href="">Ver todos</a>
+        </div>
+      </article>
+      <article class="fow">
+        Favoritos
+        <div class="ver">
+          <a href="">Ver todos</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

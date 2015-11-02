@@ -30,7 +30,11 @@ Parse.Cloud.define("favoriteAudio", function (request, response) {
   var fav = new Favoritos();
 
   fav.set("from", Parse.User.current());
-  fav.set("to", request.params.audio);
+  fav.set("to", {
+    __type: "Pointer",
+    className: "Audio",
+    objectId: request.params.audio
+  });
 
   fav.save(null, {
     success: function() {

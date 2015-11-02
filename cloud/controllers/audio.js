@@ -76,6 +76,7 @@ Parse.Cloud.define("addAudio", function(request, response) {
   audio.set("me_gusta", 0);
   audio.set("escuchado", 0);
   audio.set("favoritos", 0);
+  audio.set("comentarios", 0);
 
   var permisos = new Parse.ACL(Parse.User.current());
   permisos.setPublicReadAccess(true);
