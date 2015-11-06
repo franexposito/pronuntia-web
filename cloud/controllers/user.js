@@ -5,6 +5,7 @@ Parse.Cloud.define("signUp", function(request, response) {
   var num = 0;
   var user = new Parse.User();
   user.set("username", request.params.username);
+  user.set("u_low", request.params.username.toLowerCase());
   user.set("password", request.params.password);
   user.set("email", request.params.email);
   var Pais = Parse.Object.extend('Pais');
@@ -112,37 +113,6 @@ Parse.Cloud.define("setBio", function(request, response) {
       response.error({'resp': error.code, 'message': error.message});
     }
   });
-});
-
-//Registro desde web
-Parse.Cloud.define("signUpWeb", function(request, response) {
-  var num = 0;
-  var user = new Parse.User();
-  user.set("username", request.params.username);
-  user.set("password", request.params.password);
-  user.set("email", request.params.email);
-  var Pais = Parse.Object.extend('Pais');
-  user.set("pais", new Pais({id: request.params.pais}));
-  user.set("isFacebook", request.params.isFacebook);
-  user.set("sexo", request.params.sexo);
-  user.set("pueblo", request.params.pueblo);
-  user.set("provincia", request.params.provincia);
-  user.set("region", request.params.region);
-
-  user.set("seguidores", num);
-  user.set("siguiendo", num);
-  user.set("favoritos", num);
-  user.set("audios", num);
-
-  user.signUp(null, {
-    success: function(user) {
-      response.success(true);
-    },
-    error: function(user, error) {
-      response.error(error);
-    }
-  });
-
 });
 
 Parse.Cloud.define("setImageFromUser", function (request, response) {

@@ -13,6 +13,7 @@ var indexController = require('cloud/controllers/index.js');
 var megustaController = require('cloud/controllers/megusta.js');
 var monigotesController = require('cloud/controllers/monigotes.js');
 var paisController = require('cloud/controllers/pais.js');
+var palabrasController = require('cloud/controllers/palabras.js');
 var seguidoresController = require('cloud/controllers/seguidores.js');
 var userController = require('cloud/controllers/user.js');
 
@@ -38,5 +39,6 @@ app.get('/registro', indexController.registro);
 app.get('/', indexController.login);
 app.get('/login', indexController.login);
 app.get('/land', indexController.land);
+app.get('/new', indexController.new);
 app.get('/:username', userController.profile);
 app.listen();

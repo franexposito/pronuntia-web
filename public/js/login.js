@@ -17,6 +17,7 @@ $(document).ready(function () {
       c1: "Introduce tu contraseña"
     },
     submitHandler: function (form) {
+      $('.btn-sub').addClass('disabled');
       var username = $('#username_p').val();
       var pass = $('#c1').val();
 
@@ -25,6 +26,7 @@ $(document).ready(function () {
           window.location.href = "http://pronuntia.parseapp.com/" + user.get('username');
         },
         error: function(user, error) {
+          $('.btn-sub').removeClass('disabled');
           $('#log_error').fadeOut();
         }
       });

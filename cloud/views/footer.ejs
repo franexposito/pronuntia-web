@@ -3,6 +3,8 @@
   <script src="//cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
   <script type="text/javascript" src="js/parse-latest.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
-  <script type="text/javascript" src="js/<%= typeof js === "undefined" ? "main" : js %>.js"></script>
+  <% js.forEach( function (script) { %>
+  <script type="text/javascript" src="js/<%= script %>.js"></script>
+  <% }) %>
 </body>
 </html>
