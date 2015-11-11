@@ -1,2 +1,33 @@
-@import '//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css';
-@import '//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css';
+body {
+  padding-top: 50px;
+}
+
+.word-cont {
+  margin-top: 20px;
+}
+
+.btn-default {
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 7px 20px;
+  font-size: 20px;
+}
+
+.btn-record {
+  background: #22ff44;
+}
+
+.btn-record.disabled {
+  opacity: .5;
+  background: #22ff44;
+}
+
+.btn-stop {
+  background: #ff3322;
+}
+
+.btn-stop.disabled {
+  opacity: .5;
+  background: #ff3322;
+}

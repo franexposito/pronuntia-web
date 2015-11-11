@@ -1,3 +1,5 @@
+var express = require('express');
+
 exports.index = function (req, res) {
   res.render('inicio/index', {});
 }
@@ -22,7 +24,7 @@ exports.registro = function (req, res) {
 }
 
 exports.login = function (req, res) {
-  res.render('login/login', {});
+  res.render('login/login');
 }
 
 exports.land = function (req, res) {
@@ -31,9 +33,4 @@ exports.land = function (req, res) {
 
 exports.new = function (req, res) {
   res.render('words/words');
-  /*if (Parse.User.current()) {
-    res.render('words/words');
-  } else {
-    res.redirect('/login');
-  }*/
 }

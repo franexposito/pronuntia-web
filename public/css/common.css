@@ -1,6 +1,7 @@
 body {
   font-family: Helvetica;
   background: #fff;
+  padding-top: 50px;
 }
 
 .pad0 {
@@ -18,16 +19,66 @@ a:focus {
   border:none;
 }
 
-.btn-sub {
-  border: none;
-  margin-top: 20px;
-  border-radius: 15px;
-  color: #00a8f0;
-  padding: 7px 0;
-  font-size: 15px;
+.menu-top {
+  z-index: 1;
+  height: 50px;
+  background: #00a8f0;
+  position: absolute;
+  border-bottom: 1px solid #00a8f0;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
-.btn-sub:hover {
-  color: #00a8f0;
-  background: #fff;
+.menu-top .notification-boton-cont a {
+  display: none;
+}
+
+.menu-top .notification-boton-cont {
+  padding-top: 6px;
+  width: 10%;
+  float: left;
+}
+
+.onlog .menu-top .notification-boton-cont a {
+  /*color: #575757;*/
+  color: #fff;
+  padding: 0 0 0 16px;
+  font-weight: bold;
+  font-size: 30px;
+  display: block;
+}
+
+.menu-top .notification-boton-cont .badge-noti {
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  font-size: 10px;
+  /*background: #00a8f0;*/
+  padding: 3px 10px;
+  /*color: #fff;*/
+  border-radius: 15px;
+  background: #414141;
+  color: #fff;
+}
+
+.menu-top .titulo-pronuntia {
+  width: 80%;
+  float: left;
+}
+
+.menu-top .titulo-pronuntia h1 {
+  text-align: center;
+  /*color: #00a8f0;*/
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 50px;
+}
+
+.menu-top .botones-menu {
+  width: 10%;
+  float: left;
 }

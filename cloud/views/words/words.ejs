@@ -3,8 +3,13 @@
 <% var js = ["recordmp3", "words"] %>
 <% include ../header %>
 
-  <div id="spinner"></div><br>
-  <button class="btn btn-default btn-record">record</button>
-  <button class="btn btn-default btn-stop disabled">stop</button>
+  <% include ../nav %>
+
+  <div class="col-sm-6 col-sm-offset-3 word-cont">
+    <p id="wor"></p>
+  
+    <button class="btn btn-default btn-record"><i class="fa fa-microphone fa-fw"></i> record</button>
+    <button class="btn btn-default btn-stop disabled"><i class="fa fa-stop fa-fw"></i> stop</button>
+  </div>
 
 <% include ../footer %>

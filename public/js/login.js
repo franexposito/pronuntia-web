@@ -18,10 +18,10 @@ $(document).ready(function () {
     },
     submitHandler: function (form) {
       $('.btn-sub').addClass('disabled');
-      var username = $('#username_p').val();
+      var usern = $('#username_p').val();
       var pass = $('#c1').val();
-
-      Parse.User.logIn(username, pass, {
+      
+      Parse.User.logIn(usern, pass, {
         success: function(user) {
           window.location.href = "http://pronuntia.parseapp.com/" + user.get('username');
         },

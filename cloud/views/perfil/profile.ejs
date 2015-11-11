@@ -19,20 +19,8 @@
   <!-- parte principal de la web que contiene las 3 columnas y el navegador -->
   <main id="panel" class="container-fluid principal">
     <!-- menu navegador de la pagina web -->
-    <nav class="menu">
-      <section class="notification-boton-cont">
-        <a id="menu-bottom" href="#"><i class="fa fa-user"></i>
-        <span class="badge-noti">0</span></a>
-      </section>
-
-      <section class="titulo-pronuntia">
-        <h1>Pronuntia</h1>
-      </section>
-
-      <section class="botones-menu">
-
-      </section>
-    </nav>
+    <% include ../nav %>
+    
     <% include info_user %>
 
     <% include audios_cont %>

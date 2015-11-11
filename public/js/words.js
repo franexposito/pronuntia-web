@@ -8,6 +8,7 @@ function getNumberWords() {
   Parse.Cloud.run('getNumbersWords', {}, {
     success: function(c) {
       numberWords = c;
+      console.log(Parse.User.current().get('idioma'));
       user = Parse.User.current();
       changePalabra();
       console.log(numberWords);
@@ -27,14 +28,13 @@ function changePalabra() {
   query.find({
     success: function(p) {
       palabra = p;
-      document.getElementById('spinner').innerHTML = p[0].get("palabra");
+      document.getElementById('wor').innerHTML = p[0].get("palabra");
     },
     error: function(error) {
       alert('Tenemos algunos problemas, actualiza la página e intentalo de nuevo');
     }
   });
-    
-  document.getElementById('spinner').innerHTML = "<img src=\"https://www.brown.edu/sites/default/themes/pawtuxet/img/loader-larger.gif\" width=\"100\" height=\"100\">";
+
 }
 
 function startUserMedia(stream) {
@@ -63,6 +63,8 @@ window.onload = function init() {
 };
 
 $(document).ready( function() {
+  
+  if(!Parse.User.current()) { window.location.href = "http://pronuntia.parseapp.com/"; } 
   
   getNumberWords();
   

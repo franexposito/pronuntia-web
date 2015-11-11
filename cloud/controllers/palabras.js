@@ -1,6 +1,6 @@
 //Obtengo el numero de palabras del idioma de Parse.User.current
 Parse.Cloud.define('getNumbersWords', function (request, response) {
-  var pais = Parse.User.current().get('pais');
+  var pais = request.user.get('pais');
   var query = new Parse.Query('Palabras');
   
   pais.fetch().then( function(country){ 
