@@ -305,7 +305,7 @@ body {
 
 .sexo li a.selected p,
 .sexo li a:hover p {
-  color: #fff;
+  color: #00a8f0;
 }
 
 .sexo li a#male .fa {
@@ -313,7 +313,7 @@ body {
 }
 
 .sexo li a#female .fa {
-   color: #9300bf;
+   color: #f5b1cc;
 }
 
 .sexo li p {

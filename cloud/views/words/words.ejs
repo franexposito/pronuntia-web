@@ -3,13 +3,38 @@
 <% var js = ["recordmp3", "words"] %>
 <% include ../header %>
 
-  <% include ../nav %>
+<% include ../nav %>
 
-  <div class="col-sm-6 col-sm-offset-3 word-cont">
-    <p id="wor"></p>
-  
-    <button class="btn btn-default btn-record"><i class="fa fa-microphone fa-fw"></i> record</button>
-    <button class="btn btn-default btn-stop disabled"><i class="fa fa-stop fa-fw"></i> stop</button>
+<div class="col-sm-6 col-sm-offset-3 wor-cont">
+  <p id="wor"></p>
+</div>
+
+<div class="col-sm-6 col-sm-offset-3 rec-cont">
+  <div class="row-height p-cont">
+    <div class="col-xs-1 col-height bt">
+      <button class="btn btn-default btn-record"><i class="fa fa-microphone fa-fw"></i></button>
+    </div>
+    <div class="col-xs-1 col-height bt">
+      <button class="btn btn-default btn-stop" disabled><i class="fa fa-check fa-fw"></i></button>
+    </div>
+    <div class="col-xs-9 col-height progreso">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="180">
+          <span class="sr-only">Barra de progreso</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-1 col-height dur">
+      <p id="cuenta">0:00</p>
+    </div>
+    <div class="col-xs-1 col-height bt">
+      <button class="btn btn-default btn-dele" disabled><i class="fa fa-times fa-fw"></i></button>
+    </div>
   </div>
+</div>
+
+<div class="col-sm-6 col-sm-offset-3 record-list">
+  <h1>Palabras grabadas</h1>
+</div>
 
 <% include ../footer %>

@@ -1,33 +1,142 @@
 body {
   padding-top: 50px;
+  background: #e9e9e9;
 }
 
-.word-cont {
+.wor-cont {
+  padding: 5px;
   margin-top: 20px;
+  background: #fff;
+  border-radius: 0;
+  border: 1px solid #cecece;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.wor-cont p {
+  margin: 0;
+  padding: 5px 15px;
+  color: #00a8f0;
+  font-weight: bold;
+}
+
+.rec-cont {
+  margin-top: 0;
+  padding: 0;
+}
+
+.row-height {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%
+}
+
+.rec-cont .p-cont {
+  background: #fff;
+  border-radius: 0;
+  border: 1px solid #cecece;
 }
 
 .btn-default {
   border: none;
-  border-radius: 5px;
   color: #fff;
-  padding: 7px 20px;
+  padding: 0px;
   font-size: 20px;
 }
 
-.btn-record {
-  background: #22ff44;
-}
-
-.btn-record.disabled {
-  opacity: .5;
-  background: #22ff44;
-}
-
 .btn-stop {
-  background: #ff3322;
+  background: #fff;
+  color: #22ff44;
 }
 
-.btn-stop.disabled {
-  opacity: .5;
-  background: #ff3322;
+.btn-stop:hover {
+  background: #fff;
+  opacity: .7;
+  color: #22ff44;
+}
+
+.btn-dele {
+  color: #ff3322;
+}
+
+.btn-dele:hover {
+  background: #fff;
+  opacity: .7;
+  color: #ff3322;
+}
+
+.btn-record {
+  color: #00a8f0;
+  background: #fff;
+}
+
+.btn-record:hover {
+  opacity: .7;
+  color: #00a8f0;
+  background: #fff;
+}
+
+.rec-cont .p-cont .col-xs-12 {
+  float: none;
+}
+
+.rec-cont .p-cont .col-height {
+  display: table-cell;
+  float: none;
+  height: 100%;
+}
+
+.rec-cont .p-cont .bt {
+  padding: 5px;
+  text-align: center;
+}
+
+.rec-cont .p-cont .bt .btn-default {
+  vertical-align: middle;
+}
+
+.rec-cont .p-cont .progreso {
+  vertical-align: middle;
+}
+
+.rec-cont .p-cont .progreso .progress {
+  margin-bottom: 0;
+  height: 4px;
+  border-radius: none;
+}
+
+.rec-cont .p-cont .progreso .progress .progress-bar {
+  background: #9e9e9e;
+}
+
+.rec-cont .p-cont .dur {
+  text-align: right;
+  vertical-align: middle;
+}
+
+.rec-cont .p-cont .dur p {
+  margin: 0;
+  padding: 0;
+  color: #b4b4b4;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.record-list {
+  padding: 5px;
+  margin-top: 5px;
+  background: #fff;
+  border-radius: 0;
+  border: 1px solid #cecece;
+}
+
+.record-list h1 {
+  margin: 0;
+  padding: 5px;
+  font-size: 14px;
+  color: #c4c4c4;
+  font-weight: bold;
 }
