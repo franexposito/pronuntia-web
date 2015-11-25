@@ -4,28 +4,27 @@
   <section class="col-sm-9 all-pronuntias">
     <!-- cada una de las pronunciaciones -->
     <% audios.forEach(function(audio) { %>
-    <div class="p-cont col-sm-4">
-      <div class="col-sm-12 header-pronuntia"></div>
-      <div class="col-xs-12 rest">
-        <div class="col-sm-12 pronuntia-principal pad0">
-          <div class="col-sm-12 nombre pad0">
+    <div class="row-height p-cont col-xs-12">
+      <div class="col-xs-1 col-height play">
+        <a href="#"> <img src="img/play.png" alt="play"></a>
+      </div>
+      <div class="col-xs-11 col-height rest">
+        <div class="col-xs-12 row-height pronuntia-principal pad0">
+          <div class="col-xs-10 col-height nombre pad0">
             <a href='#'><%= audio.get('palabra') %></a>
+            <div class="bottom pad0">
+              <a href=""><img src="img/replay.png"> <%= audio.get("escuchado") %></a>
+              <a href=""><img src="img/fav.png"> <%= audio.get("favoritos") %></a>
+              <a href=""><img src="img/comments.png"> <%= audio.get("comentarios") %></a>
+              <a id="excl" href=""><img src="img/excla.png"></a>
+              <a href=""><img src="img/share.png"></a>
+            </div>
           </div>
-          <div class="col-sm-12 play">
-            <a href="#"> <img src="img/play.png" alt="play"></a>
-          </div>
-          <div class="col-sm-12 col-height fecha pad0">
+          <div class="col-xs-2 col-height fecha pad0">
             <img src="/img/es-2.png" />
             <h3><%= formatTimeAudio(audio.createdAt) %></h3>
           </div>
         </div>
-      </div>
-      <div class="bottom col-sm-12 pad0">
-        <a href=""><img src="img/replay.png"> <%= audio.get("escuchado") %></a>
-        <a href=""><img src="img/fav.png"> <%= audio.get("favoritos") %></a>
-        <a href=""><img src="img/comments.png"> <%= audio.get("comentarios") %></a>
-        <a id="excl" href=""><img src="img/excla.png"></a>
-        <a href=""><img src="img/share.png"></a>
       </div>
     </div>
     <% }) %>
@@ -37,7 +36,7 @@
       <h1 class="tit">Maś escuchados</h1>
       <div class="bar-sep"></div>
     </div>
-    
+
     <ul class="col-sm-12 about-pronuntia">
       <li>©2015 Pronuntia </li>
       <li><a href="">Sobre nosotros </a></li>

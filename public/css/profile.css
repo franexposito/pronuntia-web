@@ -1,12 +1,39 @@
-.cover {
-
-}
-
 .principal {
   padding: 80px 0px 20px 20px;
   padding-bottom: 20px;
   min-height: 100vh;
   background: #e9e9e9;
+}
+
+.opciones-cont {
+  background: #fff;
+  margin-top: 70px;
+  margin-bottom: 20px;
+  display: none;
+  border-bottom: 1px solid #cecece;
+  padding: 15px 70px;
+}
+
+.opciones-cont h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: #383838;
+  margin-bottom: 5px;
+}
+
+.opciones-cont .vistas {
+  
+}
+
+.opciones-cont .vistas a {
+  display: block;
+  color: #8d8d8d;
+  padding-left: 7px;
+}
+
+.opciones-cont .vistas a.active {
+  color: #00a8f0;
 }
 
 .profile-info-cont {
@@ -243,54 +270,12 @@ a.num {
   padding-left: 0;
 }
 
-.pronuntias-cont .tools-audio-cont {
+.cuad .pronuntias-cont .p-cont {
   padding: 0 5px;
   margin-bottom: 5px;
 }
 
-.pronuntias-cont .tools-audio-cont .btn-default:hover {
-  background: #fff;
-}
-
-.open .dropdown-toggle.btn-default {
-  background: white;
-  border: 1px solid #b3b3b3;
-}
-
-.btn-group.open .dropdown-toggle {
-  box-shadow: none;
-}
-
-.pronuntias-cont .tools-audio-cont .tools-audio {
-  background: #fff;
-  padding: 8px 15px;
-}
-
-.pronuntias-cont .tools-audio-cont .tools-audio h1 {
-  margin: 0;
-  padding: 0;
-  color: #b2b2b2;
-  font-size: 15px;
-}
-
-.pronuntias-cont .tools-audio-cont .tools-audio .tools {
-  list-style: none;
-  margin: 0;
-}
-
-.pronuntias-cont .tools-audio-cont .tools-audio .tools li {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  float: left;
-}
-
-.pronuntias-cont .p-cont {
-  padding: 0 5px;
-  margin-bottom: 5px;
-}
-
-.pronuntias-cont .p-cont .header-pronuntia {
+.cuad .pronuntias-cont .p-cont .header-pronuntia {
   height: 30px;
   border-bottom: 1px solid #cecece;
   border-top-left-radius: 5px;
@@ -299,46 +284,46 @@ a.num {
   border: 1px solid #cecece;
 }
 
-.pronuntias-cont .p-cont .rest {
+.cuad .pronuntias-cont .p-cont .rest {
   background: #fff;
   border-right: 1px solid #cecece;
   border-left: 1px solid #cecece;
 }
 
-.pronuntias-cont .p-cont .play {
+.cuad .pronuntias-cont .p-cont .play {
   padding: 0;
   text-align: center;
 }
 
-.pronuntias-cont .p-cont .play a {
+.cuad .pronuntias-cont .p-cont .play a {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
   margin-bottom: 40px;
 }
 
-.pronuntias-cont .p-cont .play a img {
+.cuad .pronuntias-cont .p-cont .play a img {
   width: 50px;
   vertical-align: middle;
 }
 
-.pronuntias-cont .p-cont .pronuntia-principal .nombre {
+.cuad .pronuntias-cont .p-cont .pronuntia-principal .nombre {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.pronuntias-cont .p-cont .pronuntia-principal .nombre > a {
+.cuad .pronuntias-cont .p-cont .pronuntia-principal .nombre > a {
   color: #00a8f0;
   font-weight: bold;
   text-align: left;
 }
 
-.pronuntias-cont .p-cont .pronuntia-principal .fecha {
+.cuad .pronuntias-cont .p-cont .pronuntia-principal .fecha {
   position: relative;
 }
 
-.pronuntias-cont .p-cont .pronuntia-principal .fecha h3 {
+.cuad .pronuntias-cont .p-cont .pronuntia-principal .fecha h3 {
   margin: 0;
   padding: 0;
   color: #b4b4b4;
@@ -349,14 +334,14 @@ a.num {
   top: -17px;
 }
 
-.pronuntias-cont .p-cont .pronuntia-principal .fecha img {
+.cuad .pronuntias-cont .p-cont .pronuntia-principal .fecha img {
   position: absolute;
   left: 1px;
   top: -20px;
   height: 15px;
 }
 
-.pronuntias-cont .p-cont .bottom {
+.cuad .pronuntias-cont .p-cont .bottom {
   padding: 12px 5px;
   background: #fff;
   border: 1px solid #cecece;
@@ -365,7 +350,7 @@ a.num {
   text-align: right;
 }
 
-.pronuntias-cont .p-cont .bottom a {
+.cuad .pronuntias-cont .p-cont .bottom a {
   font-size: 12px;
   line-height: 20px;
   color: #b3b3b3;
@@ -373,11 +358,11 @@ a.num {
   margin-right: 5px;
 }
 
-.pronuntias-cont .p-cont .bottom a img {
+.cuad .pronuntias-cont .p-cont .bottom a img {
   height: 15px;
 }
 
-.pronuntias-cont .p-cont .bottom a#excl {
+.cuad .pronuntias-cont .p-cont .bottom a#excl {
   margin-left: 10px;
 }
 
@@ -414,3 +399,96 @@ a.num {
 }
 
 
+/***********************************************/
+.listas .pronuntias-cont .p-cont {
+  /*border-radius: 5px;*/
+  padding: 0;
+  background: #fff;
+  border: 1px solid #e9e9e9;
+  border-bottom: none; 
+}
+
+.listas .row-height {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%
+}
+
+.listas .pronuntias-cont .p-cont .col-height {
+  display: table-cell;
+  float: none;
+  height: 100%;
+}
+
+.listas .pronuntias-cont .p-cont .play {
+  border-right: 1px solid #cecece;
+  width: 12%;
+  padding: 0;
+  text-align: center;
+}
+
+.listas .pronuntias-cont .p-cont .play a {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.listas .pronuntias-cont .p-cont .play a img {
+  width: 40px;
+  vertical-align: middle;
+}
+
+.listas .pronuntias-cont .p-cont .pronuntia-principal .nombre {
+  vertical-align: middle;
+}
+
+.listas .pronuntias-cont .p-cont .pronuntia-principal .nombre > a {
+  color: #676767;
+
+  text-align: left;
+  vertical-align: middle;
+}
+
+.listas .pronuntias-cont .p-cont .pronuntia-principal .fecha {
+  text-align: right;
+  vertical-align: middle;
+}
+
+.listas .pronuntias-cont .p-cont .pronuntia-principal .fecha h3 {
+  margin: 0;
+  padding: 0;
+  color: #b4b4b4;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.listas .pronuntias-cont .p-cont .pronuntia-principal .fecha img {
+  height: 15px;
+  display: inline-block;
+}
+
+.listas .pronuntias-cont .p-cont .bottom {
+  margin-top: 5px;
+  padding: 0;
+}
+
+.listas .pronuntias-cont .p-cont .bottom a {
+  font-size: 12px;
+  line-height: 20px;
+  color: #b3b3b3;
+  display: inline-block;
+  vertical-align: bottom;
+  margin-right: 5px;
+}
+
+.listas .pronuntias-cont .p-cont .bottom a img {
+  height: 15px;
+}
+
+.listas .pronuntias-cont .p-cont .bottom a#excl {
+  margin-left: 10px;
+}
+
+/***********************************************/

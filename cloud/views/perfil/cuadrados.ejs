@@ -1,0 +1,24 @@
+<div class="p-cont col-sm-4">
+  <div class="col-sm-12 header-pronuntia"></div>
+  <div class="col-xs-12 rest">
+    <div class="col-sm-12 pronuntia-principal pad0">
+      <div class="col-sm-12 nombre pad0">
+        <a href='#'><%= audio.get('palabra') %></a>
+      </div>
+      <div class="col-sm-12 play">
+        <a href="#"> <img src="img/play.png" alt="play"></a>
+      </div>
+      <div class="col-sm-12 col-height fecha pad0">
+        <img src="/img/es-2.png" />
+        <h3><%= formatTimeAudio(audio.createdAt) %></h3>
+      </div>
+    </div>
+  </div>
+  <div class="bottom col-sm-12 pad0">
+    <a href=""><img src="img/replay.png"> <%= audio.get("escuchado") %></a>
+    <a href=""><img src="img/fav.png"> <%= audio.get("favoritos") %></a>
+    <a href=""><img src="img/comments.png"> <%= audio.get("comentarios") %></a>
+    <a id="excl" href=""><img src="img/excla.png"></a>
+    <a href=""><img src="img/share.png"></a>
+  </div>
+</div>

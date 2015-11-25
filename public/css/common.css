@@ -132,3 +132,7 @@ a:focus {
 .menu-top .menu-ul li > a:hover {
   background: #009bdd;
 }
+
+.menu-top .menu-ul li > #options.active {
+  background: #009bdd;
+}
