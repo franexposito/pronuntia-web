@@ -24,7 +24,7 @@
 
     options: {
       timeLimit: 180,           // recording time limit (sec)
-      encodeAfterRecord: true, // process encoding after recording
+      encodeAfterRecord: false, // process encoding after recording
       progressInterval: 1000,   // encoding progress report interval (millisec)
       bufferSize: 4096,
       ogg: {

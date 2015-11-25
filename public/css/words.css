@@ -1,5 +1,5 @@
 body {
-  padding-top: 50px;
+  padding-top: 70px;
   background: #e9e9e9;
 }
 
@@ -67,11 +67,13 @@ body {
   color: #ff3322;
 }
 
+.btn-save,
 .btn-record {
   color: #00a8f0;
   background: #fff;
 }
 
+.btn-save,
 .btn-record:hover {
   opacity: .7;
   color: #00a8f0;
@@ -82,12 +84,13 @@ body {
   float: none;
 }
 
-.rec-cont .p-cont .col-height {
+.col-height {
   display: table-cell;
   float: none;
   height: 100%;
 }
 
+.audio-g .bt,
 .rec-cont .p-cont .bt {
   padding: 5px;
   text-align: center;
@@ -139,4 +142,25 @@ body {
   font-size: 14px;
   color: #c4c4c4;
   font-weight: bold;
+}
+
+.record-list div {
+  vertical-align: middle;
+}
+
+.record-list h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: #00a8f0;
+  vertical-align: middle;
+}
+
+.record-list audio { 
+  width: 100%; 
+}
+
+.record-list .bt img {
+  height: 28px;
+  display: none;
 }

@@ -104,6 +104,18 @@ $(document).ready(function () {
         email: "No es un email válido"
       }
     },
+    errorPlacement: function (error, element) {
+      $(element).parent().children('.dot').addClass('error-d');
+      $(element).parent().append(error);
+    },
+
+    //Esta funcion se encarga de cambiar el color de la frase cuando esta correcto
+    success: function(label, element) {
+      $(element).parent().children('.dot').removeClass('error-d');
+      $(label).remove();
+      console.log(element);
+    },
+    
     submitHandler: function (form) {
       if (provincia === 0) {
         $('#loc_error').fadeIn();
@@ -112,11 +124,11 @@ $(document).ready(function () {
         }
       } else {
         $('.error_block').hide();
-        
+
         var userN = $('#username_p').val();
         var pass = $('#c1').val();
         var mail = $('#mail').val();
-        
+
         var num = 0;
         var user = new Parse.User();
         user.set("username", userN);
@@ -158,7 +170,7 @@ $(document).ready(function () {
       alert('Ha habido un error, inténtelo de nuevo más tarde');
     }
   });
-  
+
   $('.form-control').on('focusout', function () {
     $(this).parent().children('.dot').removeClass('active');
   });
@@ -280,7 +292,7 @@ $(document).ready(function () {
   $("#imgInp").on('change', function() {
     getImage(this);
   });
-  
+
   $('.monigote-btn .btn-img').on('click', function() {
     var data = {
       monigoteBool: true,
@@ -296,7 +308,7 @@ $(document).ready(function () {
       }
     });
   });
-  
+
   $('.monigotes-cont').on('click', 'a', function(evt) {
     evt.preventDefault();
     $('.selected').removeClass('selected');
@@ -304,7 +316,7 @@ $(document).ready(function () {
     monigoteE = $(this).data('id');
     if ($('.monigote-btn .btn-img').hasClass('disabled')) { $('.monigote-btn .btn-img').removeClass('disabled'); }
   });
-  
+
   $('.close_x').on('click', function(evt) {
     evt.preventDefault();   
     $(this).parent().fadeOut();
@@ -319,12 +331,12 @@ $(document).ready(function () {
           }
         },
         error: function(error) {
-          
+
         }
       });
     }
   });
-  
+
   $('#mail').on('focusout', function() {
     if ( $('#em_error').is(':visible') ) {
       Parse.Cloud.run('existsUserWithEmail', {'email': $('#mail').val()}, {
@@ -334,7 +346,7 @@ $(document).ready(function () {
           }
         },
         error: function(error) {
-          
+
         }
       });
     }

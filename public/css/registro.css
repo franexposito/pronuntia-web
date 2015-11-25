@@ -123,7 +123,10 @@ body {
 
 .formulario .form .form-group .dot.active {
   background: #00ee4a;
-  /*background: #ff4444;*/
+}
+
+.formulario .form .form-group .dot.error-d {
+  background: #ff4444;
 }
 
 .condiciones {

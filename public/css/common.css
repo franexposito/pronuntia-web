@@ -1,5 +1,5 @@
 body {
-  font-family: Helvetica;
+  font-family: 'Open Sans',sans-serif;
   background: #fff;
 }
 
@@ -18,66 +18,117 @@ a:focus {
   border:none;
 }
 
+.menu-lat {
+  margin: 0; 
+  background: #3d3c3c;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 55px;
+  padding: 0;
+  padding-top: 70px;
+  list-style: none;
+  z-index: 3;
+}
+
+.menu-lat li {
+  display: block;
+  padding: 0;
+  position: relative;
+  text-align: center;
+}
+
+.menu-lat li a {
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 25px;
+  display: block;
+}
+
+.menu-lat li a:hover {
+  background: #484747;
+}
+
+.menu-lat .menu-a.active {
+  background: #484747;
+}
+
+.menu-lat span {
+  display: none;
+  position: absolute;
+  left: 55px;
+  top: 0;
+  font-size: 16px;
+  padding: 17px 0;
+  width: 190px;
+  white-space: nowrap;
+  background: #484747;
+  color: #fff;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.menu-lat .menu-show {
+  display: none;
+  position: fixed;
+  left: 55px;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  padding: 20px 25px;
+  background: #484747;
+}
+
+.menu-lat .menu-show h1 {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.menu-lat .menu-show .divider-ul {
+  margin-right: 20px;
+  height: 1px;
+  background: #f0f2f0;
+  width: 233px;
+  margin-top: 25px;
+}
+
 .menu-top {
   z-index: 1;
-  height: 50px;
+  height: 70px;
   background: #00a8f0;
   position: absolute;
+  padding: 0;
   border-bottom: 1px solid #00a8f0;
   top: 0;
   right: 0;
   left: 0;
 }
 
-.menu-top .notification-boton-cont a {
-  display: none;
-}
-
-.menu-top .notification-boton-cont {
-  padding-top: 6px;
-  width: 10%;
-  float: left;
-}
-
-.onlog .menu-top .notification-boton-cont a {
-  /*color: #575757;*/
-  color: #fff;
-  padding: 0 0 0 16px;
-  font-weight: bold;
-  font-size: 30px;
-  display: block;
-}
-
-.menu-top .notification-boton-cont .badge-noti {
-  position: absolute;
-  top: 5px;
-  left: 30px;
-  font-size: 10px;
-  /*background: #00a8f0;*/
-  padding: 3px 10px;
-  /*color: #fff;*/
-  border-radius: 15px;
-  background: #414141;
-  color: #fff;
-}
-
-.menu-top .titulo-pronuntia {
-  width: 80%;
-  float: left;
-}
-
-.menu-top .titulo-pronuntia h1 {
-  text-align: center;
-  /*color: #00a8f0;*/
-  color: #fff;
-  padding: 0;
+.menu-top .menu-ul {
   margin: 0;
-  font-weight: 600;
-  font-size: 25px;
-  line-height: 50px;
+  height: 70px;
 }
 
-.menu-top .botones-menu {
-  width: 10%;
-  float: left;
+.menu-top .menu-ul li {
+  display: inline-block;
+  height: 100%;
+}
+
+.menu-top .menu-ul li > a {
+  display: block;
+  padding: 0 20px;
+  margin: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 70px;
+}
+
+.menu-top .menu-ul li > a:hover {
+  background: #009bdd;
 }

@@ -3,19 +3,21 @@ var recorder;
 var numberWords = 0;
 var user;
 var palabra;
-var url = window.location.href 
+var url = window.location.href;
+var blobs = [];
+var index = 0;
 
 /********
 Buttons and elements
 ********/
 var $recordb = $('.btn-record');
-  $stopb = $('.btn-stop');
-  $dur = $('.dur');
-  $deleb = $('.btn-dele');
-  $pbar = $('.progress-bar');
-  $wor = $('#wor');
-  $recL = $('.record-list');
-  
+$stopb = $('.btn-stop');
+$dur = $('.dur');
+$deleb = $('.btn-dele');
+$pbar = $('.progress-bar');
+$wor = $('#wor');
+$recL = $('.record-list');
+
 
 function startUserMedia(stream) {
   var input = audioContext.createMediaStreamSource(stream);
@@ -49,8 +51,9 @@ function changePalabra() {
   query.limit(1);
   query.find({
     success: function(p) {
-      palabra = p;
+      palabra = p[0].get("palabra");
       $wor.html(p[0].get("palabra"));
+      $recordb.attr("disabled", false);
     },
     error: function(error) {
       alert('Tenemos algunos problemas, actualiza la página e intentalo de nuevo');
@@ -106,24 +109,55 @@ $(document).ready( function() {
 
   $stopb.on('click', function(evt) {
     recorder.stopRecording();
-    $recordb.attr('disabled', false);
     $stopb.attr('disabled', true);
     $deleb.attr('disabled', true);
-    /*Parse.Cloud.run('setAudioFromPalabra', {megaBuffer: megaB}, {
-      success: function(c) {
-        changePalabra();
-      },
-      error: function(error) {
-        alert('Tenemos algunos problemas, actualiza la página e inténtalo de nuevo');
-      }
-    });*/
   });
 
+  $('.record-list').on('click', '.btn-dele', function() {
+    $(this).parent().parent().hide();
+  });
+
+  $('.record-list').on('click', '.btn-save', function() {
+    var p = $(this).parent().parent();
+    var ind = parseInt($(p).data('index'));
+    var read = new FileReader();  
+    read.onload = function() {
+      var audio = read.result;
+      var data = {
+        'palabra': $(p).data('wor'),
+        'source': audio,
+        'tipo': 1
+      };
+      
+
+      var loader = $(p).children('.loader').children('img');
+      $(loader).show();
+      $(this).attr('disabled', true);
+      $(p).children('.bt').children('.btn-dele').attr('disabled', true);
+      Parse.Cloud.run('addAudioWeb', data, {
+        success: function(c) {
+          $(loader).hide();
+          $(loader).parent().append('<p>ok</p>');
+        },
+        error: function(error) {
+          alert('Tenemos algunos problemas, actualiza la página e inténtalo de nuevo');
+        }
+      }); 
+    }
+    
+    read.readAsDataURL(blobs[ind]);
+  });
 });
 
 function saveRecording(blob) {
   var url = URL.createObjectURL(blob),
-      html = "<p recording='" + url + "'><audio controls src='" + url + "'></audio></p>";
+      html = '<div class="audio-g"><div data-index="'+index+'" data-wor="'+palabra+'" class="row-height">' 
+  + '<div class="col-xs-3 col-height"><h2>'+palabra+'</h2></div>' 
+  + '<div class="col-xs-6 col-height ad"><audio controls src="'+ url +'"></audio></div>' 
+  + '<div class="col-xs-1 col-height bt"><button class="btn btn-default btn-save"><i class="fa fa-cloud fa-fw"></i></button></div>' 
+  + '<div class="col-xs-1 col-height bt"><button class="btn btn-default btn-dele"><i class="fa fa-times fa-fw"></i></button></div>'
+  + '<div class="col-xs-1 col-height bt loader"><img src="/img/loader.gif"></div>' 
+  + '</div></div>';
   $recL.append($(html));
 }
 
@@ -137,14 +171,16 @@ function setHandlers() {
   };
 
   recorder.onComplete = function(recorder, blob) {
+    blobs.push(blob);
     saveRecording(blob);
+    index++;
     changePalabra();
   };
 
   recorder.onError = function(recorder, message) {
 
   };
-  
+
   recorder.onConsole = function(recorder, message) {
     console.log("Mensaje del codificador: " + message);
   }

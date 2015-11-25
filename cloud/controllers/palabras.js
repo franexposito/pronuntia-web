@@ -12,7 +12,3 @@ Parse.Cloud.define('getNumbersWords', function (request, response) {
     response.error({'resp': error.code, 'message': error.message});
   });
 });
-
-Parse.Cloud.define("setAudioFromPalabra", function (request, response) {
-
-});

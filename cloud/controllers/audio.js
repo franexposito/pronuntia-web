@@ -1,4 +1,5 @@
 var _ = require('underscore');
+var Buffer = require('buffer').Buffer;
 
 //Obtengo todos los Audios
 Parse.Cloud.define("listAudios", function(request, response) {
@@ -110,4 +111,40 @@ Parse.Cloud.define("getAudioFromUser", function(request, response) {
       response.error({'resp': error.code, 'message': error.message});
     }
   });
+});
+
+//Almacenamos un Audio creado por el actual usuario
+Parse.Cloud.define("addAudioWeb", function(request, response) {
+  var Audios = Parse.Object.extend("Audios");
+  var audio = new Audios();
+
+  var name = Parse.User.current().get("username") + "_" +  Parse.User.current().id + request.params.palabra + ".ogg";
+  var temp = request.params.source;
+  var matches = temp.match(/^data:.+\/(.+);base64,(.*)$/);
+  temp = matches[2];
+  audio.set("pais", Parse.User.current().get("pais"));
+  audio.set("palabra", request.params.palabra);
+  audio.set("user", Parse.User.current());
+  audio.set("tipo", request.params.tipo);
+
+  audio.set("me_gusta", 0);
+  audio.set("escuchado", 0);
+  audio.set("favoritos", 0);
+  audio.set("comentarios", 0);
+
+  var permisos = new Parse.ACL(Parse.User.current());
+  permisos.setPublicReadAccess(true);
+  audio.setACL(permisos);
+  
+  var source = new Parse.File(name, {base64:temp});
+  source.save().then(function (img) {
+    console.log(img);
+    audio.set("file", img);
+    return audio.save();
+  }).then( function (audio) {
+    response.success(true);
+  }, function (error) {
+    response.error({'resp': error});
+  });
+
 });

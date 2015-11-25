@@ -1,12 +1,12 @@
 <!-- columna izquierda que contiene la información del perfil -->
-<section class="profile-info-cont">
+<section class="profile-info-cont col-sm-3">
   <!-- contenedor con la foto, nombre, fecha e info de seguimiento -->
   <div class="profile-info col-sm-12">
     <div class="col-sm-5 profile-foto">
       <% if(usuario.get('imageprofile') != undefined){ %> 
-        <img class="fot" src="<%= usuario.get('imageprofile').url() %>" alt="avatar">
+      <img class="fot" src="<%= usuario.get('imageprofile').url() %>" alt="avatar">
       <% } else{ %>
-        <img class="fot" src="<%= usuario.get('monigote').get('file').url() %>" alt="avatar">
+      <img class="fot" src="<%= usuario.get('monigote').get('file').url() %>" alt="avatar">
       <% } %>
       <!-- <% if(true){ %> <a class="seg" href="#"><i class="fa fa-plus"></i> Seguir</a> <% } %> -->
       <a class="sig" href="#">Siguiendo</a>
@@ -20,47 +20,77 @@
   </div>
   <!-- contenedor con la descripcion del perfil, localizacion y pagina web -->
   <div class="profile-description col-sm-12">
+    <div class="bar-sep"></div>
     <article class="localizacion"><p><%= usuario.get('pueblo') %>, <%= usuario.get('provincia') %></p></article>
     <% if (usuario.get('bio') != undefined) { %>
-      <article class="descripcion"><p><%= usuario.get('bio').replace(/\n/g, '<br />') %></p></article>
+    <article class="descripcion"><p><%= usuario.get('bio').replace(/\n/g, '<br />') %></p></article>
     <% } %>
-    <article class="web"><p><a href="">http://facebook.com/george.awad3</a></p></article>
+    <% if (usuario.get('web') != undefined) { %>
+    <article class="web"><p><a href="<%= usuario.get('web') %>"><%= usuario.get('web') %></a></p></article>
+    <% } %>
   </div>
   <!-- contenedor con la informacion de los seguidores, seguidos y favoritos del usuario -->
   <div class="profile-follows col-sm-12">
-    <div class="col-sm-12 row-d">
-      <div class="col-xs-4 active">
-        <div class="col-xs-12 titulo"><h1>seguidores</h1></div>
-        <div class="col-xs-12 cifras"><a href="#"><%= usuario.get('seguidores') %></a></div>
-      </div>
-      <div class="col-xs-4">
-        <div class="col-xs-12 titulo"><h1>siguiendo</h1></div>
-        <div class="col-xs-12 cifras"><a href="#"><%= usuario.get('siguiendo')  %></a></div>
-      </div>
-      <div class="col-xs-4">
-        <div class="col-xs-12 titulo"><h1>favoritos</h1></div>
-        <div class="col-xs-12 cifras"><a href="#"><%= usuario.get('favoritos') %></a></div>
-      </div>
+    <div class="col-xs-12 follows">
+      <h1 class="tit">Seguidores</h1>
+      <a class="num" href="#"><%= usuario.get('seguidores') %></a>
+      <div class="bar-sep"></div>
+      <% if (seguidores != undefined) { %>
+      <ul class="seg-menu col-xs-12">
+        <% seguidores.forEach(function(s) { %>
+        <% saux = s.get('from') %>
+        <li class="seg-cont col-xs-12">
+          <a class="seg-a col-xs-12" href="/<%= saux.get('username') %>">
+            <div class="col-xs-3 seg-fot">
+              <% if(saux.get('imageprofile') != undefined){ %> 
+              <img class="fot" src="<%= saux.get('imageprofile').url() %>" alt="avatar">
+              <% } else{ %>
+              <img class="fot" src="<%= saux.get('monigote').get('file').url() %>" alt="avatar">
+              <% } %>
+            </div>
+            <div class="col-xs-9 seg-n">
+              <p class="name"><%= saux.get('username') %></p>
+              <img src="<%= saux.get('pais').get('bandera_file').url() %>" >
+              <p class="lugar"><%= saux.get('pueblo') %> &#183; <%= saux.get('provincia') %></p>
+            </div>
+          </a>
+        </li>
+        <% }) %>
+      </ul>
+      <% } %>
     </div>
-    <div class="col-sm-12 row-e">
-      <article class="fow active">
-        Seguidores
-        <div class="ver">
-          <a href="">Ver todos</a>
-        </div>
-      </article>
-      <article class="fow">
-        Siguiendo
-        <div class="ver">
-          <a href="">Ver todos</a>
-        </div>
-      </article>
-      <article class="fow">
-        Favoritos
-        <div class="ver">
-          <a href="">Ver todos</a>
-        </div>
-      </article>
+    <div class="col-xs-12 follows">
+      <h1 class="tit">Siguiendo</h1>
+      <a class="num" href="#"><%= usuario.get('siguiendo') %></a>
+      <div class="bar-sep"></div>
+      <% if (siguiendo != undefined) { %>
+      <ul class="seg-menu col-xs-12">
+        <% siguiendo.forEach(function(s) { %>
+        <% saux = s.get('to') %>
+        <li class="seg-cont col-xs-12">
+          <a class="seg-a col-xs-12" href="/<%= saux.get('username') %>">
+            <div class="col-xs-3 seg-fot">
+              <% if(saux.get('imageprofile') != undefined){ %> 
+              <img class="fot" src="<%= saux.get('imageprofile').url() %>" alt="avatar">
+              <% } else{ %>
+              <img class="fot" src="<%= saux.get('monigote').get('file').url() %>" alt="avatar">
+              <% } %>
+            </div>
+            <div class="col-xs-9 seg-n">
+              <p class="name"><%= saux.get('username') %></p>
+              <img src="<%= saux.get('pais').get('bandera_file').url() %>" >
+              <p class="lugar"><%= saux.get('pueblo') %> &#183; <%= saux.get('provincia') %></p>
+            </div>
+          </a>
+        </li>
+        <% }) %>
+      </ul>
+      <% } %>
+    </div>
+    <div class="col-xs-12 follows">
+      <h1 class="tit">Favoritos</h1>
+      <a class="num" href="#"><%= usuario.get('favoritos') %></a>
+      <div class="bar-sep"></div>
     </div>
   </div>
 </section>

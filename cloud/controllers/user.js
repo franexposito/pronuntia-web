@@ -145,7 +145,8 @@ Parse.Cloud.define("setImageFromUser", function (request, response) {
 exports.profile = function (req, res) {
   var query = new Parse.Query(Parse.User);
   var userF;
-  var audiosArray = [];
+  var audios;
+  var seguidores;
 
   query.include("pais");
   query.include("monigote");
@@ -154,11 +155,26 @@ exports.profile = function (req, res) {
     userF = user;
     var queryAudio = new Parse.Query("Audios");
     queryAudio.include("pais");
+    queryAudio.limit(9);
+    queryAudio.descending("createdAt");
     queryAudio.equalTo("user", user);
     return queryAudio.find();
   }).then(function(audio) {
-    res.render('perfil/profile', {usuario: userF, audios: audio});
-    //res.send(userF);
+    audios = audio;
+    var querySeg = new Parse.Query("Seguidores");
+    querySeg.limit(3);
+    querySeg.include(["from", "from.pais", "from.monigote"]);
+    querySeg.equalTo("to", userF);
+    return querySeg.find();
+  }).then(function(seg) {
+    seguidores = seg;
+    var querySiguiendo = new Parse.Query("Seguidores");
+    querySiguiendo.limit(3);
+    querySiguiendo.include(["to", "to.pais", "to.monigote"]);
+    querySiguiendo.equalTo("from", userF);
+    return querySiguiendo.find();
+  }).then( function(sig) {
+    res.render('perfil/profile', {usuario: userF, audios: audios, seguidores: seguidores, siguiendo: sig});
   }, function() {
     res.send(500, 'User not found');
   });
