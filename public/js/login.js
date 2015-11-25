@@ -17,14 +17,16 @@ $(document).ready(function () {
       c1: "Introduce tu contraseña"
     },
     submitHandler: function (form) {
-      var username = $('#username_p').val();
+      $('.btn-sub').addClass('disabled');
+      var usern = $('#username_p').val();
       var pass = $('#c1').val();
-
-      Parse.User.logIn(username, pass, {
+      
+      Parse.User.logIn(usern, pass, {
         success: function(user) {
           window.location.href = "http://pronuntia.parseapp.com/" + user.get('username');
         },
         error: function(user, error) {
+          $('.btn-sub').removeClass('disabled');
           $('#log_error').fadeOut();
         }
       });

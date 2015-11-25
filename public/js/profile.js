@@ -1,10 +1,16 @@
+var $options = $('#options'),
+    $conf = $('.opciones-cont');
+
 $(document).ready(function () {
-  $('#menu-bottom').on('click', function (evt) {
-    if ( _opened ) {
-      close();
-    } else {
-      open();
-    }
+  $options.on('click', function(evt) {
     evt.preventDefault();
+    if ($options.hasClass('active')) {
+      $options.removeClass('active');
+      $conf.slideUp();
+    } else {
+      $options.addClass('active');
+      $conf.slideDown();
+    }
+    
   });
 });

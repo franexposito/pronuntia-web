@@ -1,3 +1,7 @@
+body {
+  padding-top: 0:
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -119,7 +123,10 @@ body {
 
 .formulario .form .form-group .dot.active {
   background: #00ee4a;
-  /*background: #ff4444;*/
+}
+
+.formulario .form .form-group .dot.error-d {
+  background: #ff4444;
 }
 
 .condiciones {
@@ -301,7 +308,7 @@ body {
 
 .sexo li a.selected p,
 .sexo li a:hover p {
-  color: #fff;
+  color: #00a8f0;
 }
 
 .sexo li a#male .fa {
@@ -309,7 +316,7 @@ body {
 }
 
 .sexo li a#female .fa {
-   color: #9300bf;
+   color: #f5b1cc;
 }
 
 .sexo li p {

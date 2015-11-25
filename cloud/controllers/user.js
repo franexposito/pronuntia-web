@@ -5,6 +5,7 @@ Parse.Cloud.define("signUp", function(request, response) {
   var num = 0;
   var user = new Parse.User();
   user.set("username", request.params.username);
+  user.set("u_low", request.params.username.toLowerCase());
   user.set("password", request.params.password);
   user.set("email", request.params.email);
   var Pais = Parse.Object.extend('Pais');
@@ -114,37 +115,6 @@ Parse.Cloud.define("setBio", function(request, response) {
   });
 });
 
-//Registro desde web
-Parse.Cloud.define("signUpWeb", function(request, response) {
-  var num = 0;
-  var user = new Parse.User();
-  user.set("username", request.params.username);
-  user.set("password", request.params.password);
-  user.set("email", request.params.email);
-  var Pais = Parse.Object.extend('Pais');
-  user.set("pais", new Pais({id: request.params.pais}));
-  user.set("isFacebook", request.params.isFacebook);
-  user.set("sexo", request.params.sexo);
-  user.set("pueblo", request.params.pueblo);
-  user.set("provincia", request.params.provincia);
-  user.set("region", request.params.region);
-
-  user.set("seguidores", num);
-  user.set("siguiendo", num);
-  user.set("favoritos", num);
-  user.set("audios", num);
-
-  user.signUp(null, {
-    success: function(user) {
-      response.success(true);
-    },
-    error: function(user, error) {
-      response.error(error);
-    }
-  });
-
-});
-
 Parse.Cloud.define("setImageFromUser", function (request, response) {
   var user = Parse.User.current();
   if (request.params.monigoteBool == true) {
@@ -175,7 +145,8 @@ Parse.Cloud.define("setImageFromUser", function (request, response) {
 exports.profile = function (req, res) {
   var query = new Parse.Query(Parse.User);
   var userF;
-  var audiosArray = [];
+  var audios;
+  var seguidores;
 
   query.include("pais");
   query.include("monigote");
@@ -184,11 +155,26 @@ exports.profile = function (req, res) {
     userF = user;
     var queryAudio = new Parse.Query("Audios");
     queryAudio.include("pais");
+    queryAudio.limit(9);
+    queryAudio.descending("createdAt");
     queryAudio.equalTo("user", user);
     return queryAudio.find();
   }).then(function(audio) {
-    res.render('perfil/profile', {usuario: userF, audios: audio});
-    //res.send(userF);
+    audios = audio;
+    var querySeg = new Parse.Query("Seguidores");
+    querySeg.limit(3);
+    querySeg.include(["from", "from.pais", "from.monigote"]);
+    querySeg.equalTo("to", userF);
+    return querySeg.find();
+  }).then(function(seg) {
+    seguidores = seg;
+    var querySiguiendo = new Parse.Query("Seguidores");
+    querySiguiendo.limit(3);
+    querySiguiendo.include(["to", "to.pais", "to.monigote"]);
+    querySiguiendo.equalTo("from", userF);
+    return querySiguiendo.find();
+  }).then( function(sig) {
+    res.render('perfil/profile', {usuario: userF, audios: audios, seguidores: seguidores, siguiendo: sig});
   }, function() {
     res.send(500, 'User not found');
   });

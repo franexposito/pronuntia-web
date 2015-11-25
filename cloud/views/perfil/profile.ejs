@@ -1,38 +1,14 @@
 <% var stylesheet = "profile" %>
 <% var title = "Perfil" %>
-<% var js = "profile" %>
+<% var js = ["profile"] %>
 <% include ../header %>
 
-  <!-- menu de notificaciones que aparece de izquierda a derecha -->
-  <article id="menuM" class="notifiaciones">
-    <!-- titulo del menu de notificaciones -->
-    <div class="col-sm-12 titulo"><h1>Notificaciones</h1></div>
-    <!-- contenedor con todas las notificaciones -->
-    <div class="col-sm-12 contenedor">
-      <!-- cada una de las notificaciones -->
-      <div class="col-sm-12 notificacion">
+  <% include ../nav %>
 
-      </div>
-    </div>
-  </article>
-
+  <% include opciones %>
   <!-- parte principal de la web que contiene las 3 columnas y el navegador -->
-  <main id="panel" class="container-fluid principal">
-    <!-- menu navegador de la pagina web -->
-    <nav class="menu">
-      <section class="notification-boton-cont">
-        <a id="menu-bottom" href="#"><i class="fa fa-user"></i>
-        <span class="badge-noti">0</span></a>
-      </section>
-
-      <section class="titulo-pronuntia">
-        <h1>Pronuntia</h1>
-      </section>
-
-      <section class="botones-menu">
-
-      </section>
-    </nav>
+  <main id="panel" class="container-fluid principal listas">
+    <!-- menu navegador de la pagina web -->  
     <% include info_user %>
 
     <% include audios_cont %>

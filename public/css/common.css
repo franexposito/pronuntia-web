@@ -1,5 +1,5 @@
 body {
-  font-family: Helvetica;
+  font-family: 'Open Sans',sans-serif;
   background: #fff;
 }
 
@@ -18,16 +18,121 @@ a:focus {
   border:none;
 }
 
-.btn-sub {
-  border: none;
-  margin-top: 20px;
-  border-radius: 15px;
-  color: #00a8f0;
-  padding: 7px 0;
-  font-size: 15px;
+.menu-lat {
+  margin: 0; 
+  background: #3d3c3c;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 55px;
+  padding: 0;
+  padding-top: 70px;
+  list-style: none;
+  z-index: 3;
 }
 
-.btn-sub:hover {
-  color: #00a8f0;
-  background: #fff;
+.menu-lat li {
+  display: block;
+  padding: 0;
+  position: relative;
+  text-align: center;
+}
+
+.menu-lat li a {
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 25px;
+  display: block;
+}
+
+.menu-lat li a:hover {
+  background: #484747;
+}
+
+.menu-lat .menu-a.active {
+  background: #484747;
+}
+
+.menu-lat span {
+  display: none;
+  position: absolute;
+  left: 55px;
+  top: 0;
+  font-size: 16px;
+  padding: 17px 0;
+  width: 190px;
+  white-space: nowrap;
+  background: #484747;
+  color: #fff;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.menu-lat .menu-show {
+  display: none;
+  position: fixed;
+  left: 55px;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  padding: 20px 25px;
+  background: #484747;
+}
+
+.menu-lat .menu-show h1 {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.menu-lat .menu-show .divider-ul {
+  margin-right: 20px;
+  height: 1px;
+  background: #f0f2f0;
+  width: 233px;
+  margin-top: 25px;
+}
+
+.menu-top {
+  z-index: 1;
+  height: 70px;
+  background: #00a8f0;
+  position: absolute;
+  padding: 0;
+  border-bottom: 1px solid #00a8f0;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.menu-top .menu-ul {
+  margin: 0;
+  height: 70px;
+}
+
+.menu-top .menu-ul li {
+  display: inline-block;
+  height: 100%;
+}
+
+.menu-top .menu-ul li > a {
+  display: block;
+  padding: 0 20px;
+  margin: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 70px;
+}
+
+.menu-top .menu-ul li > a:hover {
+  background: #009bdd;
+}
+
+.menu-top .menu-ul li > #options.active {
+  background: #009bdd;
 }

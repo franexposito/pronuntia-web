@@ -13,7 +13,7 @@ before_script:
   - /bin/echo "${ACCOUNT_KEY}" | /usr/local/bin/parse configure accountkey -d
 
 script:
-  - /usr/local/bin/parse deploy -f
+#  - /usr/local/bin/parse deploy -f
 
 env:
   global:
